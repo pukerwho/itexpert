@@ -1,0 +1,48 @@
+.footer {
+	&_social {
+		li {
+			a {
+				width: 35px;
+				height: 35px;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				-ms-flex-align: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+				background: #ffffff;
+				border-radius: 50%;
+				transition: 0.3s;
+				&:hover {
+					background: transparent;
+					svg {
+						fill: #ffffff;
+					}
+				}
+			}
+		}
+	}
+	&_bottom {
+		border-top: 1px solid rgba(255,255,255,.23);
+	}
+	&_menu {
+		display: flex;
+		align-items: center;
+		margin: 0 -1rem;
+		@include for-phone {
+			margin: 0;
+		}
+		li {
+			padding: 0 1rem;
+			@include for-phone {
+				padding: 0.25rem 0;
+			}
+		}
+	}
+}

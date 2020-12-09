@@ -1,0 +1,33 @@
+.wp-block {
+	max-width: 100%;
+}
+
+.scroll-up {
+	width: 60px;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	bottom: 1rem;
+	right: 1rem;
+	border-radius: 50%;
+	cursor: pointer;
+	visibility: hidden;
+	opacity: 0;
+	z-index: -1;
+	transition: all 0.3s;
+	&.show {
+		visibility: visible;
+		opacity: 1;
+		z-index: 1;		
+	}
+}
+
+li {
+	list-style-type: none;
+}
+
+p {
+	margin-bottom: 1rem;
+}

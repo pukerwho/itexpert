@@ -1,0 +1,10 @@
+$phone_size: 767px; 
+$tablet_size: 1023px;
+$desktop_size: 1279px;
+@mixin for-phone {
+  @media (max-width: $tablet_size) { @content; }
+}
+
+@mixin for-tablet {
+  @media (min-width: $tablet_size) and (max-width: $desktop_size) { @content; }
+}

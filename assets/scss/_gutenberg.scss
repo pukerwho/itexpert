@@ -1,0 +1,101 @@
+.wp-block-group__inner-container{width:100%; margin-left: auto; margin-right: auto;}@media (min-width:640px){.wp-block-group__inner-container{max-width:640px;padding-left: 1rem;padding-right: 1rem;}}@media (min-width:768px){.wp-block-group__inner-container{max-width:768px;padding-left: 1rem;padding-right: 1rem;}}@media (min-width:1024px){.wp-block-group__inner-container{max-width:1024px;padding-left: 1rem;padding-right: 1rem;}}@media (min-width:1280px){.wp-block-group__inner-container{max-width:1280px}}
+.wp-block-group__inner-container .alignwide {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	@include for-phone {
+		width: 100%;
+		padding-left: 1rem;padding-right: 1rem;
+	}
+}
+
+
+.block {
+	.reviews {
+		&_pagination {
+			text-align: center;
+			margin-top: 2rem;
+			.swiper-pagination-bullet {
+				height: 5px;
+				width: 25px;
+				background: #bfcadc;
+				margin: 0 3px;
+				border-radius: 50px;
+				opacity: 1;
+			}
+			.swiper-pagination-bullet-active {
+				width: 35px;
+				background: #0c5adb;
+			}
+		}
+	}
+	.review {
+		&_item {
+			&_content {
+				position: relative;
+				&:before {
+					content: '';
+					bottom: -20px;
+					top: auto;
+					border-color: #fff transparent transparent #fff;
+					display: block;
+					position: absolute;
+					left: 0;
+					margin-left: 0;
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 15px;
+				}
+			}
+			&_text {
+				color: #616161;
+			}
+			&_date {
+				color: #0c5adb;
+				font-weight: 600;
+				font-style: italic;
+			}
+			&_author {
+				&_name {
+					color: #ffffff;
+					font-size: 1.25rem;
+					font-weight: 600;
+				}
+				&_head {
+					color: #4a4a4a;
+					font-weight: 500;
+				}
+			}
+		}
+	}
+	.clients {
+		&_logos {
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-flex-wrap: wrap;
+			-ms-flex-wrap: wrap;
+			flex-wrap: wrap;
+			margin: 0 -1rem;
+		}
+		&_logo {
+			-webkit-box-flex:1;
+			-webkit-flex:1 0 16.66%;
+			-ms-flex:1 0 16.66%;
+			flex:1 0 16.66%;
+			-webkit-box-pack:center;
+			-webkit-justify-content:center;
+			-ms-flex-pack:center;
+			justify-content:center;
+			padding: 0 1rem;
+			@include for-phone {
+				-webkit-box-flex: 1;
+				-webkit-flex: 1 0 50%;
+				-ms-flex: 1 0 50%;
+				flex: 1 0 50%;
+			}
+		}
+	}
+}
