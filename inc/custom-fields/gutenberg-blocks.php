@@ -409,7 +409,7 @@ Block::make( __( 'ITExpert SendForm Block' ) )
             <style>
                 .sendform input, .sendform textarea {
                     width: 100%;
-                    font-size: 1.25rem;
+                    font-size: 1.1rem;
                     font-weight: 400;
                     line-height: 1.5;
                     color: #495057;
@@ -419,11 +419,14 @@ Block::make( __( 'ITExpert SendForm Block' ) )
                     -o-transition: .5s;
                     transition: .5s;
                     border: 1px solid #e6e6e6;
-                    padding: 6px 20px;
+                    padding: 0.75rem 1.25rem;
                     -webkit-box-shadow: none;
                     box-shadow: none;
                     border-radius: 5px;
                     margin-bottom: 1.25rem;
+                }.sendform input::placeholder, .sendform textarea::placeholder {
+                    color: #495057;
+                    opacity: 1;
                 }
                 .sendform input:nth-of-type(1) {
 
