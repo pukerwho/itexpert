@@ -91,7 +91,7 @@ Block::make( __( 'ITExpert Column Block' ) )
                 $column_width_mobile = 100/$fields['block_column_mobile'];
             ?>
             <div class="services py-20">
-                <h2 class="text-4xl font-bold text-center mb-12"><?php echo esc_html( $fields['block_services_title'] ); ?></h2>
+                <h2 class="text-4xl font-bold text-center mb-12"><?php echo esc_html( $fields['block_column_title'] ); ?></h2>
                 <div class="container mx-4 lg:mx-auto px-4 lg:px-0">
                     <div class="hidden lg:flex flex-wrap -mx-4">
                         <?php 
