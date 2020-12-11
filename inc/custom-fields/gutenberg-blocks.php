@@ -437,8 +437,8 @@ Block::make( __( 'ITExpert SendForm Block' ) )
                 .sendform input[type="submit"] {
                     width: auto;
                     display: block;
-                    background-color: <?php echo esc_html( $fields['block_sendform_btn_bg_hover'] ); ?>;
-                    color: <?php echo esc_html( $fields['block_sendform_btn_text'] ); ?>;
+                    background-color: <?php echo esc_html( $fields['block_sendform_btn_bg'] ); ?>;
+                    color: <?php echo esc_html( $fields['block_sendform_btn_text_hover'] ); ?>;
                     border-radius: 7px;
                     transition: .3s;
                     cursor: pointer;
@@ -446,8 +446,8 @@ Block::make( __( 'ITExpert SendForm Block' ) )
                     padding: 14px 39px;
                 }
                 .sendform input[type="submit"]:hover {
-                    background-color: <?php echo esc_html( $fields['block_sendform_btn_bg'] ); ?>;
-                    color: <?php echo esc_html( $fields['block_sendform_btn_text_hover'] ); ?>;
+                    background-color: <?php echo esc_html( $fields['block_sendform_btn_bg_hover'] ); ?>;
+                    color: <?php echo esc_html( $fields['block_sendform_btn_text'] ); ?>;
                 }
             </style>
             <div class="block sendform py-20" style="background-image: url(<?php echo esc_html( $fields['block_sendform_bg'] ); ?>); background-attachment: fixed;">
