@@ -34,11 +34,11 @@ use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 use Carbon_Fields\Block;
 
-// add_action( 'after_setup_theme', 'crb_load' );
-// function crb_load() {
-//     require_once( ABSPATH . '/vendor/autoload.php' );
-//     \Carbon_Fields\Carbon_Fields::boot();
-// }
+add_action( 'after_setup_theme', 'crb_load' );
+function crb_load() {
+    require_once( ABSPATH . '/vendor/autoload.php' );
+    \Carbon_Fields\Carbon_Fields::boot();
+}
 
 add_action( 'carbon_fields_register_fields', 'crb_register_custom_fields' );
 function crb_register_custom_fields() {
