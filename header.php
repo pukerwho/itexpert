@@ -47,7 +47,7 @@
           <div class="header-content <?php echo $header_reverse; ?>">
             <div class="logo">
               <a href="<?php echo home_url(); ?>">
-                <img src="<?php echo get_theme_mod( 'custom_header_logo' ); ?>" alt="<?php _e('Logo', 'itexpert'); ?>">  
+                <img src="<?php echo get_theme_mod( 'custom_header_logo' ); ?>" alt="<?php _e('Logo', 'itexpert'); ?>" width="200">  
               </a>
             </div>
             <div class="hidden lg:block menu header-menu">

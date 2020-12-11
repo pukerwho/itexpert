@@ -36,7 +36,7 @@ use Carbon_Fields\Block;
 
 add_action( 'after_setup_theme', 'crb_load' );
 function crb_load() {
-    require_once( ABSPATH . '/vendor/autoload.php' );
+    require_once __DIR__ . '/vendor/autoload.php';
     \Carbon_Fields\Carbon_Fields::boot();
 }
 

@@ -2,7 +2,7 @@
 use Carbon_Fields\Block;
 use Carbon_Fields\Field;
 
-wp_enqueue_style( 'editor-style', get_stylesheet_directory_uri() . '/css/style.css', false, time() );
+wp_enqueue_style( 'editor-style', get_stylesheet_directory_uri() . '/css/style.css' );
 
 Block::make( __( 'ITExpert Welcome Block' ) )
     ->add_tab('Background', array(
