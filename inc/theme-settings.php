@@ -230,20 +230,6 @@ function customizer_init( WP_Customize_Manager $wp_customize ){
     ] );
 
     // настройка
-    $setting = 'display_header';
-
-    $wp_customize->add_setting( $setting, [
-      'default'    =>  'true',
-      'transport'  =>  $transport
-    ] );
-
-    $wp_customize->add_control( $setting, [
-      'section' => $section,
-      'label'   => 'Отобразить заголовок?',
-      'type'    => 'checkbox',
-    ] );
-
-    // настройка
     $setting = 'color_scheme';
 
     $wp_customize->add_setting( $setting, [
@@ -262,7 +248,7 @@ function customizer_init( WP_Customize_Manager $wp_customize ){
     ] );
 
     // настройка
-    $setting = 'font';
+    $setting = 'main_font';
 
     $wp_customize->add_setting( $setting, [
       'default'   => 'arial',     // этот шрифт будет задействован по умолчанию
@@ -275,9 +261,10 @@ function customizer_init( WP_Customize_Manager $wp_customize ){
       'label'    => 'Шрифт',
       'type'     => 'select', // выпадающий список select
       'choices'  => [ // список значений и лейблов выпадающего списка в виде ассоциативного массива
-        'arial'     => 'Arial',
-        'courier'   => 'Courier New',
-        'roboto'   => 'Roboto'
+        'roboto-slab'   => 'Roboto Slab',
+        'open-sans'   => 'Open Sans',
+        'oswald' => 'Oswald',
+
       ]
     ] );
 

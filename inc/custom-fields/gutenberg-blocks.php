@@ -44,13 +44,13 @@ Block::make( __( 'ITExpert Welcome Block' ) )
         </style>
         <div class="welcome" style="background: url(<?php echo $fields['block_welcome_bg'] ?>);background-attachment: fixed;">
             <div class="container mx-auto py-32 lg:py-12 px-4 lg:px-0">
-                <div class="w-full lg:w-9/12 flex flex-col lg:flex-row items-center justify-center mx-auto">
+                <div class="w-full lg:w-10/12 flex flex-col lg:flex-row items-center justify-center mx-auto">
                     <div class="w-full lg:w-1/2 text-center lg:text-left">
                         <!-- Заголовок -->
-                        <h1 class="text-3xl lg:text-5xl mb-5" style="color: <?php echo esc_html( $fields['block_welcome_heading_color'] ); ?>"><?php echo esc_html( $fields['block_welcome_heading'] ); ?></h1>
+                        <h1 class="text-3xl lg:text-5xl leading-tight mb-5" style="color: <?php echo esc_html( $fields['block_welcome_heading_color'] ); ?>"><?php echo esc_html( $fields['block_welcome_heading'] ); ?></h1>
 
                         <!-- Описание -->
-                        <div class="welcome_description text-3xl mb-10" style="color: <?php echo esc_html( $fields['block_welcome_text_color'] ); ?>"><?php echo esc_html( $fields['block_welcome_text'] ); ?></div>
+                        <div class="welcome_description text-3xl leading-tight mb-10" style="color: <?php echo esc_html( $fields['block_welcome_text_color'] ); ?>"><?php echo esc_html( $fields['block_welcome_text'] ); ?></div>
 
                         <!-- Кнопка -->
                         <a href="<?php echo esc_html( $fields['block_welcome_btn_link'] ); ?>" class="welcome_btn text-2xl uppercase px-6 py-3" style="background: <?php echo esc_html( $fields['block_welcome_btn_bg_color'] ); ?>">
@@ -469,6 +469,164 @@ Block::make( __( 'ITExpert SendForm Block' ) )
                                 echo do_shortcode(''. $form_contact .'');
                             ?>
                         </div>
+                    </div>
+                </div>
+            </div>
+        <?php
+    } );
+
+Block::make( __( 'ITExpert About Block' ) )
+    ->add_tab('Info', array(
+        Field::make( 'text', 'block_about_title', __( 'Title' ) ),
+        Field::make( 'text', 'block_about_subtitle', __( 'Subtitle' ) ),
+        Field::make( 'textarea', 'block_about_text', __( 'Text' ) ),
+        Field::make( 'image', 'block_about_photo', __( 'Photo' ) )->set_value_type( 'url'),
+    ) )
+    ->set_category( 'custom-category', 'ITExpert' )
+    ->set_style( 'editor-style' )
+    ->set_mode( 'preview' )
+    ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+        ?>
+            <div class="block_about py-20">
+                <div class="container px-4 lg:px-0 mx-auto">
+                    <div class="flex flex-col lg:flex-row items-center">
+                        <div class="w-full lg:w-1/2 lg:pr-5 mb-8 lg:mb-0">
+                            <h2 class="block_about_title text-4xl font-bold mb-4 mt-10 lg:mt-0">
+                                <?php echo esc_html( $fields['block_about_title'] ); ?>
+                            </h2>
+                            <div class="block_about_subtitle text-2xl mb-10">
+                                <?php echo esc_html( $fields['block_about_subtitle'] ); ?>
+                            </div>
+                            <div>
+                                <?php echo esc_html( $fields['block_about_text'] ); ?>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2 lg:pl-5">
+                            <div class="block_about_photo">
+                                <img src="<?php echo esc_html( $fields['block_about_photo'] ); ?>" alt="About">
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        <?php
+    } );
+
+Block::make( __( 'ITExpert Mission Block' ) )
+    ->add_tab('Info', array(
+        Field::make( 'text', 'block_mission_title', __( 'Title' ) ),
+        Field::make( 'textarea', 'block_mission_text', __( 'Text' ) ),
+        Field::make( 'text', 'block_mission_author', __( 'Author' ) ),
+    ) )
+    ->set_category( 'custom-category', 'ITExpert' )
+    ->set_style( 'editor-style' )
+    ->set_mode( 'preview' )
+    ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+        ?>
+            <div class="block_mission py-20">
+                <div class="container mx-auto">
+                    <div class="w-full lg:w-10/12 flex items-center justify-center text-center mx-auto">
+                        <div class="block_mission_wrap lg:w-4/5">
+                            <h2 class="block_mission_title text-4xl font-bold mb-4">
+                                <?php echo esc_html( $fields['block_mission_title'] ); ?>
+                            </h2>
+                            <div class="block_mission_text text-xl mb-4">
+                                <?php echo esc_html( $fields['block_mission_text'] ); ?>
+                            </div>
+                            <div class="block_mission_author">
+                                <?php echo esc_html( $fields['block_mission_author'] ); ?>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        <?php
+    } );
+
+Block::make( __( 'ITExpert Our Team Block' ) )
+    ->add_tab('Columns', array(
+        Field::make( 'text', 'block_team_column_desktop', __( 'Number of column for Desktop' ) )->set_attribute( 'type', 'number' )->set_default_value( 3 ),
+    ) )
+    ->add_tab('Info', array(
+        Field::make( 'text', 'block_team_title', __( 'Title' ) ),
+        Field::make( 'textarea', 'block_team_text', __( 'Description' ) ),
+    ) )
+    ->add_tab('Team', array(
+        Field::make( 'complex', 'block_members', __( 'Member' ) )->set_layout( 'tabbed-vertical' )->add_fields( array(
+            Field::make( 'image', 'block_member_photo', __( 'Фото' ) )->set_value_type( 'url'),
+            Field::make( 'text', 'block_member_name', __( 'Имя' ) ),
+            Field::make( 'text', 'block_member_head', __( 'Должность' ) ),
+            Field::make( 'text', 'block_member_facebook', __( 'Facebook' ) ),
+            Field::make( 'text', 'block_member_instagram', __( 'Instagram' ) ),
+            Field::make( 'text', 'block_member_twitter', __( 'Twitter' ) ),
+            Field::make( 'text', 'block_member_linkedin', __( 'Linkedin' ) ),
+            Field::make( 'text', 'block_member_email', __( 'Email' ) ),
+        )),
+    ) )
+    ->set_category( 'custom-category', 'ITExpert' )
+    ->set_style( 'editor-style' )
+    ->set_mode( 'preview' )
+    ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+        ?>
+            <?php 
+                $column_width_desktop = 100/$fields['block_team_column_desktop'];
+            ?>
+            <div class="block_team py-20">
+                <h2 class="block_team_title text-4xl text-center font-bold mb-4">
+                    <?php echo esc_html( $fields['block_team_title'] ); ?>
+                </h2>
+                <div class="block_team_text text-xl text-center mb-4">
+                    <?php echo esc_html( $fields['block_team_text'] ); ?>
+                </div>
+                <div class="container mx-auto">
+                    <div class="flex flex-wrap -mx-4">
+                        <?php 
+                            $members = $fields['block_members']; 
+                            foreach($members as $member):
+                        ?>
+                            <div class="block_team_member px-4 mb-10" style="width: <?php echo $column_width_desktop; ?>%;">
+                                <div class="block_member_photo mb-4">
+                                    <img src="<?php echo $member['block_member_photo']; ?>" alt="">
+                                </div>
+                                <div class="text-xl text-center mb-4">
+                                    <?php echo $member['block_member_name']; ?>
+                                </div>
+                                <div class="text-sm text-center mb-6">
+                                    <?php echo $member['block_member_head']; ?>
+                                </div>
+                                <div class="flex justify-center items-center -mx-1">
+                                    <?php if ($member['block_member_facebook']): ?>
+                                        <a href="<?php echo $member['block_member_facebook']; ?>">
+                                            <img src="<?php bloginfo('template_url'); ?>/img/icons/facebook.svg" alt="Facebook" width="16" class="mx-1">    
+                                        </a>
+                                    <?php endif; ?>
+                                    <?php if ($member['block_member_instagram']): ?>
+                                        <a href="<?php echo $member['block_member_instagram']; ?>">
+                                            <img src="<?php bloginfo('template_url'); ?>/img/icons/instagram.svg" alt="Instagram" width="16" class="mx-1">    
+                                        </a>
+                                    <?php endif; ?>   
+                                    <?php if ($member['block_member_twitter']): ?>
+                                        <a href="<?php echo $member['block_member_twitter']; ?>">
+                                            <img src="<?php bloginfo('template_url'); ?>/img/icons/twitter.svg" alt="Twitter" width="16" class="mx-1">    
+                                        </a>
+                                    <?php endif; ?> 
+                                    <?php if ($member['block_member_linkedin']): ?>
+                                        <a href="<?php echo $member['block_member_linkedin']; ?>">
+                                            <img src="<?php bloginfo('template_url'); ?>/img/icons/linkedin.svg" alt="Linkedin" width="16" class="mx-1">    
+                                        </a>
+                                    <?php endif; ?>   
+                                    <?php if ($member['block_member_email']): ?>
+                                        <a href="<?php echo $member['block_member_email']; ?>">
+                                            <img src="<?php bloginfo('template_url'); ?>/img/icons/email.svg" alt="Email" width="16" class="mx-1">    
+                                        </a>
+                                    <?php endif; ?>    
+                                </div>
+                                
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>

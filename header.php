@@ -13,6 +13,32 @@
   <link rel="alternate" hreflang="en" href="<?php echo home_url(); ?>/en">
   <link rel="alternate" hreflang="ru" href="<?php echo home_url(); ?>/ru">
   <link rel="alternate" hreflang="ua" href="<?php echo home_url(); ?>/ua">
+
+  <?php
+    //Какой шрифт загрузить? 
+    $get_main_font = get_theme_mod( 'main_font' ); 
+    switch ($get_main_font) {
+      case 'roboto-slab':
+        $font_link = '<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;600&display=swap" rel="stylesheet">';
+        $main_font = 'Roboto Slab, serif;';
+        break;
+      case 'open-sans':
+        $font_link = '<link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">';
+        $main_font = 'Open Sans, sans-serif';
+      case 'oswald':
+        $font_link = '<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600&display=swap" rel="stylesheet">';
+        $main_font = 'Oswald, sans-serif';
+      default: 
+        $main_font = 'Arial';
+        $font_link = '';
+    }
+  ?>
+
+  <?php echo $font_link; ?>
+
   <?php
   // ENQUEUE your css and js in inc/enqueues.php
 
@@ -21,11 +47,17 @@
 </head>
 <body <?php echo body_class(); ?>>
   <?php 
+
+    
+
     //Отображение шапки (реверс?)
     $custom_header_reverse = get_theme_mod( 'custom_header_reverse' ); 
     if ($custom_header_reverse) { $header_reverse = 'flex-row-reverse'; } else { $header_reverse = ''; }
   ?>
   <style>
+    body {
+      font-family: <?php echo $main_font; ?>
+    }
     .header {
       background: transparent;
     }
