@@ -48,8 +48,6 @@
 <body <?php echo body_class(); ?>>
   <?php 
 
-    
-
     //Отображение шапки (реверс?)
     $custom_header_reverse = get_theme_mod( 'custom_header_reverse' ); 
     if ($custom_header_reverse) { $header_reverse = 'flex-row-reverse'; } else { $header_reverse = ''; }
@@ -58,8 +56,12 @@
     body {
       font-family: <?php echo $main_font; ?>
     }
-    .header {
+    .home .header {
       background: transparent;
+    }
+    .header {
+      background: <?php echo get_theme_mod( 'custom_header_gradient_one' ); ?>; 
+      background: linear-gradient(90deg, <?php echo get_theme_mod( 'custom_header_gradient_one' ); ?> 0%, <?php echo get_theme_mod( 'custom_header_gradient_two' ); ?> 100%);
     }
 
     .header.scrolled {

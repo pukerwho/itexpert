@@ -2,7 +2,12 @@
 use Carbon_Fields\Block;
 use Carbon_Fields\Field;
 
-wp_enqueue_style( 'editor-style', get_stylesheet_directory_uri() . '/css/style.css' );
+global $pagenow;
+    if (( $pagenow == 'post.php' ) || (get_post_type() == 'post')) {
+        wp_enqueue_style( 'editor-style', get_stylesheet_directory_uri() . '/css/style.css' );
+} else {
+    wp_enqueue_style( 'editor-style', get_stylesheet_directory_uri() . '/css/style2.css' );
+}
 
 Block::make( __( 'ITExpert Welcome Block' ) )
     ->add_tab('Background', array(
@@ -581,7 +586,7 @@ Block::make( __( 'ITExpert Our Team Block' ) )
                 <div class="block_team_text text-xl text-center mb-4">
                     <?php echo esc_html( $fields['block_team_text'] ); ?>
                 </div>
-                <div class="container mx-auto">
+                <div class="container px-4 lg:px-0 lg:mx-auto">
                     <div class="flex flex-wrap -mx-4">
                         <?php 
                             $members = $fields['block_members']; 

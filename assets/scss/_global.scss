@@ -25,6 +25,10 @@
 						fill: #ffffff;
 					}
 				}
+				@include for-phone {
+					width: 35px;
+					height: 35px;
+				}
 			}
 		}
 	}
