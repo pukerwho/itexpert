@@ -49,6 +49,7 @@ function crb_register_custom_fields() {
 register_nav_menus( array(
   'head_menu' => 'Меню в шапке',
   'footer_menu' => 'Меню в подвале',
+  'cat_navi_menu' => 'Меню в Блоге',
 ) );
 
 // подключаем файлы со стилями
@@ -87,6 +88,17 @@ function my_custom_upload_mimes($mimes = array()) {
 }
 
 add_action('upload_mimes', 'my_custom_upload_mimes');
+
+# ---------------------------------------------------
+# REMOVE SCREEN READER TEXT FROM POST PAGINATION
+# ---------------------------------------------------
+function sanitize_pagination($content) {
+    // Remove h2 tag
+    $content = preg_replace('#<h2.*?>(.*?)<\/h2>#si', '', $content);
+    return $content;
+}
+ 
+add_action('navigation_markup_template', 'sanitize_pagination');
 
 function get_page_url($template_name) {
   $pages = get_posts([

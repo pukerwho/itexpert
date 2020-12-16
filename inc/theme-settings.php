@@ -13,8 +13,8 @@ function customizer_init( WP_Customize_Manager $wp_customize ){
   if ( $section = 'custom_header' ) {
 
     $wp_customize->add_section( $section, [
-      'title' => 'Настройка Header',
-      'priority'  => 10,
+      'title' => 'Header',
+      'priority'  => 1,
     ]);
 
     //Логотип
@@ -119,7 +119,7 @@ function customizer_init( WP_Customize_Manager $wp_customize ){
 
     $wp_customize->add_section( $section, [
       'title' => 'Footer',
-      'priority'  => 200,
+      'priority'  => 4,
     ]);
 
     //Instagram
@@ -224,27 +224,9 @@ function customizer_init( WP_Customize_Manager $wp_customize ){
   if( $section = 'display_options' ){
 
     $wp_customize->add_section( $section, [
-      'title'     => 'Отображение',
-      'priority'  => 200,                   // приоритет расположения
+      'title'     => 'Global',
+      'priority'  => 2,                   // приоритет расположения
       'description' => 'Внешний вид сайта', // описание не обязательное
-    ] );
-
-    // настройка
-    $setting = 'color_scheme';
-
-    $wp_customize->add_setting( $setting, [
-      'default'   => 'normal',
-      'transport' => $transport
-    ] );
-
-    $wp_customize->add_control( $setting, [
-      'section'  => $section,
-      'label'    => 'Цветовая схема',
-      'type'     => 'radio',
-      'choices'  => [
-        'normal'    => 'Светлая',
-        'inverse'   => 'Темная',
-      ]
     ] );
 
     // настройка
@@ -268,19 +250,60 @@ function customizer_init( WP_Customize_Manager $wp_customize ){
       ]
     ] );
 
-    // настройка
-    $setting = 'footer_copyright_text';
+  }
+
+  // Секция Блог
+  if( $section = 'blog_options' ){
+
+    $setting = 'custom_blog_bg';
+    $wp_customize->add_setting( $setting, [
+      'default'   => '#f6f6f6',
+      'transport' => $transport
+    ] );
+    $wp_customize->add_control( 
+      new WP_Customize_Color_Control( $wp_customize, $setting, [
+        'label'    => 'Фон',
+        'settings' => $setting,
+        'section'  => $section
+      ] )
+    );
+
+    $wp_customize->add_section( $section, [
+      'title'     => 'Blog',
+      'priority'  => 3,                   // приоритет расположения
+      'description' => 'Settings', // описание не обязательное
+    ] );
+
+    //Показывать заголовок?
+    $setting = 'custom_blog_title';
 
     $wp_customize->add_setting( $setting, [
-      'default'            => 'Все права защищены',
-      'sanitize_callback'  => 'sanitize_text_field',
-      'transport'          => $transport
+      'default'    =>  'true',
+      'transport'  =>  $transport
     ] );
 
     $wp_customize->add_control( $setting, [
-      'section'  => 'display_options', // id секции
-      'label'    => 'Копирайт',
-      'type'     => 'text' // текстовое поле
+      'section' => $section,
+      'label'   => 'Показывать заголовок?',
+      'type'    => 'checkbox',
+    ] );
+
+    //Blog Templates
+    $setting = 'custom_blog_template';
+
+    $wp_customize->add_setting( $setting, [
+      'default'   => 'blog_template_one',
+      'transport' => $transport
+    ] );
+
+    $wp_customize->add_control( $setting, [
+      'section'  => $section, // секция
+      'label'    => 'Template',
+      'type'     => 'select', // выпадающий список select
+      'choices'  => [ // список значений и лейблов выпадающего списка в виде ассоциативного массива
+        'blog_template_one'   => 'Template One',
+        'blog_template_two'   => 'Template Two',
+      ]
     ] );
 
   }
@@ -290,8 +313,8 @@ function customizer_init( WP_Customize_Manager $wp_customize ){
 
     // Добавляем ещё одну секцию - Настройки фона
     $wp_customize->add_section( $section, [
-      'title'    => 'Скролл вверх',
-      'priority' => 201,
+      'title'    => 'Scroll Up',
+      'priority' => 5,
     ] );
 
     $setting = 'scroll_up_bg';

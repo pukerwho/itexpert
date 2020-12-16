@@ -14,7 +14,7 @@
 						'post_per_page' => 10,
 					));
 					if ($posts_query->have_posts()) : while ($posts_query->have_posts()) : $posts_query->the_post(); ?>
-					<?php get_template_part('blocks/posts/post-item', 'timeto'); ?>
+					<?php the_title(); ?>
 				<?php endwhile; endif; wp_reset_postdata(); ?>
 			</div>
 		</main>
