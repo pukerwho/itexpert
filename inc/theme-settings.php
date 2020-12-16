@@ -288,6 +288,20 @@ function customizer_init( WP_Customize_Manager $wp_customize ){
       'type'    => 'checkbox',
     ] );
 
+    //Выводить категории?
+    $setting = 'custom_blog_cat_navi';
+
+    $wp_customize->add_setting( $setting, [
+      'default'    =>  'true',
+      'transport'  =>  $transport
+    ] );
+
+    $wp_customize->add_control( $setting, [
+      'section' => $section,
+      'label'   => 'Выводить меню?',
+      'type'    => 'checkbox',
+    ] );
+
     //Blog Templates
     $setting = 'custom_blog_template';
 
