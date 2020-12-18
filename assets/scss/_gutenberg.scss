@@ -10,6 +10,25 @@
 }
 
 
+figure.wp-block-image {
+	width: 75%;
+	box-shadow: 0 0 5px 0 rgba(204,204,204,.48);
+	padding: 1rem;
+	margin: auto;
+  margin-bottom: 1.5rem;
+  @include for-phone {
+  	width: 100%;
+  }
+  figcaption {
+    text-align: center;
+    font-style: italic;
+    opacity: 0.75;
+    padding: 0.25rem 0;
+    margin-bottom: 0;
+    margin-top: 1rem;
+  }
+}
+
 .block {
 	.reviews {
 		&_pagination {
@@ -124,6 +143,65 @@
 			@include for-phone {
 				width: 100% !important;
 			}
+		}
+	}
+	&_quote {
+		&_template {
+			&_one {
+				&_photo {
+					width: 175px;
+					min-width: 175px;
+					max-width: 175px;
+					height: 175px;
+					object-fit: cover;
+					border-radius: 50%;
+				}
+			}
+			&_two {
+				&_photo {
+					width: 105px;
+					min-width: 105px;
+					max-width: 105px;
+					height: 105px;
+					object-fit: cover;
+					border-radius: 50%;
+				}
+				&_icon {
+					position: absolute;
+					top: 0; right: 0;
+					transform: translate(-50%, -25%);
+					img {
+						width: 135px;
+						opacity: 0.2;
+					}
+				}
+			}
+			&_three {
+				border-left: 0.35rem solid #dee1e8;
+				padding-left: 2.25rem;
+				&_text {
+					&::first-letter {
+						font-size: 2.25rem;
+						font-weight: 600;
+					}
+				}
+				&_photo {
+					width: 90px;
+					min-width: 90px;
+					max-width: 90px;
+					height: 90px;
+					object-fit: cover;
+					border-radius: 50%;
+				}
+			}
+		}
+	}
+	&_interview {
+		&_wrap {
+			color: #555555;
+			background-color: #EDEDED;
+			border-left: 0.5rem solid #78C0A8;
+			padding-left: 2rem;
 		}
 	}
 }

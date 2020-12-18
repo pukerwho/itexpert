@@ -292,7 +292,6 @@ Block::make( __( 'ITExpert Reviews Block' ) )
             Field::make( 'text', 'block_review_head', __( 'Должность' ) ),
             Field::make( 'image', 'block_review_avatar', __( 'Аватарка' ) )->set_value_type( 'url'),
             Field::make( 'text', 'block_review_date', __( 'Дата отзыва' ) ),
-            
         )),
     ) )
     ->set_category( 'custom-category', 'ITExpert' )
@@ -548,6 +547,138 @@ Block::make( __( 'ITExpert Mission Block' ) )
                     
                 </div>
             </div>
+        <?php
+    } );
+
+Block::make( __( 'ITExpert Interview Block' ) )
+    ->add_tab('Author', array(
+        Field::make( 'image', 'block_interview_photo', __( 'Avatar' ) )->set_value_type( 'url'),
+        Field::make( 'text', 'block_interview_author', __( 'Author' ) ),
+        Field::make( 'text', 'block_interview_author_position', __( 'Author Position' ) ),
+    ) )
+    ->add_tab('QA', array(
+        Field::make( 'complex', 'block_interview_qa', __( 'Отзыв' ) )->set_layout( 'tabbed-vertical' )->add_fields( array(
+                Field::make( 'text', 'block_interview_q', __( 'Question' ) ),
+                Field::make( 'rich_text', 'block_interview_a', __( 'Answer' ) ),
+            )),
+    ) )
+    ->set_category( 'custom-category', 'ITExpert' )
+    ->set_style( 'editor-style' )
+    ->set_mode( 'preview' )
+    ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+        ?>
+            <div class="block_interview py-4 mb-4">
+                <div class="block_interview_wrap pt-6 pb-1">
+                    <div class="block_interview_author flex items-center mb-8">
+                        <div class="mr-8">
+                            <img src="<?php echo esc_html( $fields['block_interview_photo'] ); ?>" alt="">
+                        </div>
+                        <div>
+                            <div class="text-xl mb-2"><?php echo esc_html( $fields['block_interview_author'] ); ?></div>
+                            <div class="italic opacity-75"><?php echo esc_html( $fields['block_interview_author_position'] ); ?></div>
+                        </div>
+                    </div>
+                    <div>
+                        <?php 
+                            $allqa = $fields['block_interview_qa']; 
+                            foreach($allqa as $qa):
+                        ?> 
+                            <div class="text-xl font-bold mb-6">
+                                <?php echo $qa['block_interview_q']; ?>
+                            </div>
+                            <div class="mb-8">
+                                <?php echo $qa['block_interview_a']; ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                
+            </div>
+        <?php
+    } );
+
+Block::make( __( 'ITExpert Quote Block' ) )
+    ->add_tab('Template', array(
+        Field::make( 'select', 'block_quote_template', __( 'Template' ) )
+        ->add_options( array(
+            'one' => 'Template One',
+            'two' => 'Template Two',
+            'three' => 'Template Three',
+        ) )
+    ) ) 
+    ->add_tab('Info', array(
+        Field::make( 'textarea', 'block_quote_text', __( 'Text' ) ),
+        Field::make( 'image', 'block_quote_photo', __( 'Photo' ) )->set_value_type( 'url'),
+        Field::make( 'text', 'block_quote_author', __( 'Author' ) ),
+        Field::make( 'text', 'block_quote_author_position', __( 'Author Position' ) ),
+    ) )
+    ->set_category( 'custom-category', 'ITExpert' )
+    ->set_style( 'editor-style' )
+    ->set_mode( 'preview' )
+    ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+        ?>
+            
+            <?php $quote_template = $fields['block_quote_template']; ?>
+
+            <?php if ($quote_template === 'one'): ?>
+            <div class="block_quote py-4">
+                <div class="flex">
+                    <div class="mr-10">
+                        <div class="mb-4">
+                            <img src="<?php echo esc_html( $fields['block_quote_photo'] ); ?>" alt="Expert" class="block_quote_template_one_photo">
+                        </div>
+                        <div class="text-center font-bold">
+                            <?php echo esc_html( $fields['block_quote_author'] ); ?>
+                        </div>
+                    </div>
+                    <div class="text-xl italic pt-4">
+                        <?php echo esc_html( $fields['block_quote_text'] ); ?>
+                    </div>
+                </div>
+            </div>
+            <?php endif; ?>
+
+            <?php if ($quote_template === 'two'): ?>
+            <div class="block_quote py-12">
+                <div class="relative bg-gray-300 p-10 rounded-md">
+                    <div class="block_quote_template_two_icon">
+                        <img src="<?php bloginfo('template_url'); ?>/img/icons/quote-template-two.svg" alt="Icon">
+                    </div>
+                    <div class="flex items-center mb-6">
+                        <div class="mr-6">
+                            <img src="<?php echo esc_html( $fields['block_quote_photo'] ); ?>" alt="Expert" class="block_quote_template_two_photo">
+                        </div>
+                        <div>
+                            <div class="text-xl mb-2"><?php echo esc_html( $fields['block_quote_author'] ); ?></div>
+                            <div class="opacity-75"><?php echo esc_html( $fields['block_quote_author_position'] ); ?></div>
+                        </div>
+                    </div>
+                    <div class="text-xl">
+                        <?php echo esc_html( $fields['block_quote_text'] ); ?>
+                    </div>
+                </div>
+            </div>
+            <?php endif; ?>
+
+            <?php if ($quote_template === 'three'): ?>
+            <div class="block_quote py-4">
+                <div class="block_quote_template_three">
+                    <div class="block_quote_template_three_text text-xl mb-6">
+                        <?php echo esc_html( $fields['block_quote_text'] ); ?>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="flex items-center">
+                            <img src="<?php echo esc_html( $fields['block_quote_photo'] ); ?>" alt="Expert" class="block_quote_template_three_photo">
+                            <div class="mx-4">––</div>
+                        </div>
+                        <div class="text-xl">
+                            <span><?php echo esc_html( $fields['block_quote_author'] ); ?>, </span>
+                            <span class="italic"><?php echo esc_html( $fields['block_quote_author_position'] ); ?></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php endif; ?>
         <?php
     } );
 

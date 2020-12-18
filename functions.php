@@ -28,6 +28,7 @@ if( !isset( $content_width ) ) {
 
 require_once get_template_directory() . '/inc/shortcodes.php';
 require_once get_template_directory() . '/inc/theme-settings.php';
+require_once get_template_directory() . '/inc/social-sharing.php';
 require_once get_template_directory() . '/inc/TGM/example.php';
 
 use Carbon_Fields\Container;

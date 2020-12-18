@@ -320,6 +320,20 @@ function customizer_init( WP_Customize_Manager $wp_customize ){
       ]
     ] );
 
+    //Выводить автора и дату?
+    $setting = 'show_blog_meta';
+
+    $wp_customize->add_setting( $setting, [
+      'default'    =>  'true',
+      'transport'  =>  $transport
+    ] );
+
+    $wp_customize->add_control( $setting, [
+      'section' => $section,
+      'label'   => 'Show Author and Date on single post',
+      'type'    => 'checkbox',
+    ] );
+
   }
 
   // секция

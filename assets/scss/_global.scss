@@ -59,6 +59,30 @@
 	}
 }
 
+.breadcrumbs {
+	li {
+		position: relative;
+		&:before {
+			content: '';
+			width: 10px;
+			height: 10px;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			background: url('../img/icons/double-arrows.svg');
+			background-size: contain;
+			transform: translate(50%, -50%);
+		}
+		&:last-of-type {
+			&:before {
+				content: none;
+			}
+		}
+	}
+}
+
+/* ******* PAGINATION ******** */
+
 .pagination {
 	.page-numbers {
 		width: 40px;
@@ -89,5 +113,38 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+}
+
+
+/* ******* SHARE BTN ******** */
+
+.social-share {
+	border-top: 1px solid #e6e6e6;
+	ul {
+		margin-left: -0.4rem;
+		margin-right: -0.4rem;	
+		margin-bottom: 0;
+	}
+}
+
+.share-item {
+	padding-left: 0.4rem !important;
+	padding-right: 0.4rem !important;
+	&:before {
+		content: none !important;
+	}
+}
+
+.share-link {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #e6e6e6;
+	border-radius: 0.25rem;
+	img {
+		width: 16px;
 	}
 }
