@@ -73,7 +73,7 @@
 				$posts_popular_query = new WP_Query( array(
 					'post_type' => 'post',
 					'orderby' => 'comment_count',
-					'post_per_page' => 3,
+					'posts_per_page' => 3,
 				));
 				if ($posts_popular_query->have_posts()) : while ($posts_popular_query->have_posts()) : $posts_popular_query->the_post(); ?>
 					<a href="<?php the_permalink(); ?>" class="blog_item w-full lg:w-1/3 mb-8 px-2">
