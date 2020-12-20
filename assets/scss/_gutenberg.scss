@@ -9,6 +9,17 @@
 	}
 }
 
+.wp-block-gallery {
+	ul {
+		margin-bottom: 0;
+	}
+	li {
+		padding-left: 1rem;
+		&:before {
+			content: none;
+		}
+	}
+}
 
 figure.wp-block-image {
 	width: 75%;

@@ -556,7 +556,7 @@ Block::make( __( 'ITExpert FAQ Block' ) )
     ->set_mode( 'preview' )
     ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
         ?>
-            <div class="block_faq py-y">
+            <div class="block_faq py-4">
                 <div class="container mx-auto">
                     <div itemscope itemtype="https://schema.org/FAQPage">
                         <?php 
