@@ -65,6 +65,64 @@
 	}
 	&_popular {
 		box-shadow: 0 3px 29px rgba(0,0,0,.08);
-    border-radius: 0 0 10px 10px;
+    border-radius: 10px;
+	}
+	&_сategories {
+		box-shadow: 0 3px 29px rgba(0,0,0,.08);
+    border-radius: 10px;
+    li {
+    	border-top: 1px solid #e8e8e8;
+    	padding: 1rem 0;
+    }
+    a {
+    	color: #616161;
+    	&:hover {
+    		color: #0c5adb;
+    	}
+    }
+	}
+	&_comments {
+		h3 {
+			position: relative;
+			font-size: 1.875rem;
+			font-weight: 700;
+			margin-bottom: 3rem;
+			&:before {
+				content: '';
+				position: absolute;
+		    left: 0;
+		    bottom: -15px;
+		    width: 88px;
+		    height: 3px;
+		    background: #aec6ef;
+			}
+			&:after {
+				content: '';
+		    position: absolute;
+		    left: 0;
+		    bottom: -17px;
+		    height: 8px;
+		    width: 8px;
+		    border-radius: 50%;
+		    background: #0c5adb;
+		    -webkit-animation-duration: 3s;
+		    animation-duration: 3s;
+		    -webkit-animation-timing-function: linear;
+		    animation-timing-function: linear;
+		    -webkit-animation-iteration-count: infinite;
+		    animation-iteration-count: infinite;
+		    -webkit-animation-name: MOVE-BG;
+		    animation-name: MOVE-BG;
+			}
+		}
+	}
+}
+
+@keyframes MOVE-BG {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(88px);
 	}
 }

@@ -133,7 +133,7 @@
 	padding-right: 0.4rem !important;
 	&:before {
 		content: none !important;
-	}
+	} 
 }
 
 .share-link {
@@ -146,5 +146,12 @@
 	border-radius: 0.25rem;
 	img {
 		width: 16px;
+	}
+	&:hover {
+		background: #0c5adb;
+		border: 1px solid #0c5adb;
+		svg {
+			fill: #ffffff;
+		}	
 	}
 }

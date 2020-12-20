@@ -236,4 +236,103 @@ function editLoginPageTitleUrl() {
 add_action('login_headerurl', 'editLoginPageTitleUrl');
 
 
+//techno comment form
+add_filter('comment_form_default_fields','techno_comments_form');
+if(!function_exists('techno_comments_form')){
+    function techno_comments_form($default){
+      $default['author'] = '<div  class="comment_forms from-area"><div  class="comment_forms_inner">
+      
+      <div class="comment_field">
+        <div class="row flex flex-wrap">
+          <div class="w-1/2 form-group pr-4">
+            <input id="name" class="form-control" name="author" type="text" placeholder="'.esc_attr('Your Name','itexpert').'"/>
+          </div>';
+
+      $default['email'] = '
+      <div class="w-1/2 form-group pl-4">
+        <input id="email" class="form-control"  name="email" type="text" placeholder="'.esc_attr(' Email','itexpert').'"/>
+      </div></div>';  
+      $default['phone'] = '<div class="row flex flex-wrap">
+      <div class="w-1/2 form-group pr-4">
+        <input id="phone" class="form-control"  name="phone" type="text" placeholder="'.esc_attr('Phone','itexpert').'"/>
+      </div>';
+
+      $default['title'] = '
+      <div class="w-1/2 form-group pl-4">
+        <input id="title" class="form-control" name="url" type="text" placeholder="'.esc_attr('Your Website','itexpert').'"/>
+      </div> </div></div>'; 
+      $default['url']='';
+      $default['message'] ='<div class="comment_field"><div class="form-group"><textarea name="comment" id="comment" class="form-control" cols="30" rows="6" placeholder="'.esc_attr(' Your comment...','itexpert').'"></textarea></div></div></div></div>';                                
+ 
+        return $default;
+    }
+}
+
+add_filter('comment_form_defaults','techno_form_default');
+
+ if(!function_exists('techno_form_default')){
+    function techno_form_default($default_info){
+        if(!is_user_logged_in()){
+            $default_info['comment_field'] = '';
+        }else{
+            $default_info['comment_field'] = '<div  class="comment_forms"><div  class="comment_forms_inner"> <div class="comment_field row"><div class="col-md-12 form-group"><label for="comment">'.esc_html__('Comment','itexpert').'<em>*</em></label><textarea name="comment" id="comment" class="form-control" cols="30" rows="6" placeholder="'.esc_attr('Your comment...','itexpert').'"></textarea></div></div> </div></div>';
+        }
+         
+        $default_info['submit_button'] = '<button class="wpcf7-submit button" type="submit">'.esc_html__('Post Comment','techno').'<i class="flaticon-next"></i></button>';
+        $default_info['submit_field'] = '%1$s %2$s';
+        $default_info['comment_notes_before'] = ' ';
+        $default_info['title_reply'] = esc_html__('Leave Comment','itexpert');
+        $default_info['title_reply_before'] = '<div class="commment_title"><h3> ';
+        $default_info['title_reply_after'] = '</h3></div> ';
+ 
+        return $default_info;
+    }
+ 
+ }
+  
+  
+//techno comment show
+if(! function_exists('techno_comment')){
+  function techno_comment($comment,$arg, $depth){
+    $GLOBALS ['comment'] = $comment;
+    ?>
+
+    <!-- connent reply -->    
+    <div class="post_comment">
+      <div class="comment_inner">
+        <div class="post_replay">
+          <div class="post_replay_content">                     
+            <div class="post_replay_inner" id="comment-<?php comment_ID(); ?>">
+              <div class="post_reply_thumb">
+                 <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"> <?php echo get_avatar($comment,80); ?></a>
+              </div>
+              <div class="post_reply">
+                <div class="st"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php echo get_comment_author(); ?></a></div>
+                <div class="reply_date">
+                  <span class="span_left"><?php echo get_comment_date(get_option('date_format')); ?></span>
+                  <?php 
+                    comment_reply_link(
+                      array_merge($arg,array(
+                        'reply_text' => '<span class="span_right">'. esc_html__('Reply','techno').'</span>',
+                        'depth'    => $depth,
+                        'max_depth' => $arg['max_depth']
+                      ))
+                  ); ?>   
+                  
+                </div>
+                <p><?php comment_text(); ?></p>
+                <div class="edit_comment"><?php edit_comment_link(esc_html__('(Edit)' , 'techno' ),'<small class="ecome">','</small>') ?></div>
+              </div>
+              
+            </div>
+          </div>                                
+        </div>
+      </div>
+    </div>    
+  
+    <?php
+  }
+}
+
+
 ?>

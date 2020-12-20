@@ -66,7 +66,7 @@
     </div>
 
     <!-- Popular Post -->
-    <div class="blog_popular bg-white pt-10 lg:pt-12 pb-10 px-6 lg:px-16">
+    <div class="blog_popular bg-white pt-10 lg:pt-12 pb-10 px-6 lg:px-16 mb-12">
     	<h2 class="text-3xl font-bold mb-6"><?php _e('Popular Post', 'itexpert'); ?></h2>
     	<div class="flex flex-col lg:flex-row -mx-2">
 		    <?php 
@@ -91,6 +91,30 @@
 					</a>
 				<?php endwhile; endif; wp_reset_postdata(); ?>		
 			</div>
+		</div>
+
+		<!-- Categories -->
+		<div class="blog_сategories bg-white pt-10 lg:pt-12 pb-10 px-6 lg:px-16 mb-12">
+    	<h2 class="text-3xl font-bold mb-6"><?php _e('Popular Post', 'itexpert'); ?></h2>
+			<?php 
+      $categories = get_terms( [
+        'taxonomy' => 'category',
+        'parent' => 0,
+        'hide_empty' => false,
+      ] );
+
+      foreach($categories as $cat): ?>
+	    	<li>
+		    	<a href="<?php echo get_category_link( $cat->term_id); ?>">
+		    		<?php echo $cat->name; ?>	
+		    	</a>	
+	    	</li>
+			<?php endforeach; ?>
+		</div>
+
+		<!-- Comments -->
+		<div class="blog_comments">
+			<?php comments_template(); ?>
 		</div>
 	</div>
 

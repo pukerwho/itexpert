@@ -432,12 +432,6 @@ Block::make( __( 'ITExpert SendForm Block' ) )
                     color: #495057;
                     opacity: 1;
                 }
-                .sendform input:nth-of-type(1) {
-
-                }
-                .sendform input:nth-of-type(2) {
-
-                }
                 .sendform input[type="submit"] {
                     width: auto;
                     display: block;
