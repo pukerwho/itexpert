@@ -73,3 +73,34 @@ input[type="submit"]:hover, button[type="submit"]:hover {
 	background-color: #00247E;
 	color: #FFFFFF;
 }
+
+summary {
+	position: relative;
+	color: #054ada;
+	outline:none;
+	cursor: pointer;
+	padding-left: 2rem;
+	.icon {
+		position: absolute;
+		left: 0;
+		top: 7px;
+		transform: rotate(0deg);
+		transition: transform 0.1s;
+	}
+}
+
+details {
+	.content {
+		padding-left: 2rem;
+	}
+}
+
+details[open] {
+	.icon {
+		transform: rotate(45deg);
+	}
+}
+
+details summary::-webkit-details-marker {
+  display:none;
+}

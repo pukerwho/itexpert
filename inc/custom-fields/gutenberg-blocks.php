@@ -544,6 +544,46 @@ Block::make( __( 'ITExpert Mission Block' ) )
         <?php
     } );
 
+Block::make( __( 'ITExpert FAQ Block' ) )
+    ->add_tab('Content', array(
+        Field::make( 'complex', 'block_faq', __( 'FAQ' ) )->set_layout( 'tabbed-vertical' )->add_fields( array(
+                Field::make( 'text', 'block_faq_q', __( 'Question' ) ),
+                Field::make( 'rich_text', 'block_faq_a', __( 'Answer' ) ),
+            )),
+    ) )
+    ->set_category( 'custom-category', 'ITExpert' )
+    ->set_style( 'editor-style' )
+    ->set_mode( 'preview' )
+    ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+        ?>
+            <div class="block_faq py-y">
+                <div class="container mx-auto">
+                    <div itemscope itemtype="https://schema.org/FAQPage">
+                        <?php 
+                        $faqs = $fields['block_faq']; 
+                        foreach( $faqs as $faq ): ?>
+                            <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mb-3">
+                                <summary class="zag text-lg" itemprop="name">
+                                    <div class="icon">
+                                        <svg height="14" viewBox="0 0 448 448" width="14" xmlns="http://www.w3.org/2000/svg"><path fill="#054ada" d="m272 184c-4.417969 0-8-3.582031-8-8v-176h-80v176c0 4.417969-3.582031 8-8 8h-176v80h176c4.417969 0 8 3.582031 8 8v176h80v-176c0-4.417969 3.582031-8 8-8h176v-80zm0 0"/></svg>
+                                    </div>
+                                    <div>
+                                        <?php echo $faq['block_faq_q'] ?>    
+                                    </div>
+                                </summary> 
+                                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="content">
+                                    <div itemprop="text">
+                                        <p><?php echo $faq['block_faq_a'] ?></p>
+                                    </div>
+                                </div>
+                            </details>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        <?php
+    } );
+
 Block::make( __( 'ITExpert Interview Block' ) )
     ->add_tab('Author', array(
         Field::make( 'image', 'block_interview_photo', __( 'Avatar' ) )->set_value_type( 'url'),
