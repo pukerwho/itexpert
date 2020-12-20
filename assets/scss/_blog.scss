@@ -115,6 +115,16 @@
 		    animation-name: MOVE-BG;
 			}
 		}
+		.comment-form-cookies-consent {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+		}
+		#wp-comment-cookies-consent {
+			width: auto;
+			margin: 0;
+			margin-right: 0.75rem;
+		}
 	}
 }
 
