@@ -8,7 +8,7 @@
 		<!-- Отображать Тайтл? -->
 		<?php $custom_blog_title = get_theme_mod( 'custom_blog_title' );  
 		if ($custom_blog_title): ?>
-			<h1 class="text-3xl lg:text-5xl text-center font-bold mb-4"><?php single_post_title(); ?></h1>
+			<h1 class="text-3xl lg:text-5xl text-center font-bold mb-4"><?php single_cat_title(); ?></h1>
 		<?php endif; ?>
 
 		<!-- Отображать категории, как навигацию? -->
