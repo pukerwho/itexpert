@@ -246,7 +246,7 @@ Block::make( __( 'ITExpert Steps Block' ) )
     ->set_mode( 'preview' )
     ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
         ?>
-            <div class="block_steps py-20">
+            <div id="block_steps" class="block_steps py-20">
                 <h2 class="block_steps_title text-4xl text-center font-bold mb-4">
                     <?php echo esc_html( $fields['block_steps_title'] ); ?>
                 </h2>
