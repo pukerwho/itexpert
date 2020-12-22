@@ -79,9 +79,11 @@ function init() {
   //Gutenberg Block Steps (Count Animation)
   $('.facts_item_number').each(function(){
     let factItemInnerText = $(this).text();
-    let factItemInnerNumber = factItemInnerText.substr(0,factItemInnerText.indexOf(" "));
-    console.log(factItemInnerNumber);
+    let factItemInnerNumber = parseInt(factItemInnerText, 10);
+    let newStr = factItemInnerText.replace(/[^0-9\.]+/g, "s");
+    console.log(newStr);
   });
+
   $('.counter').counterUp({
     delay: 10,
     time: 4000
