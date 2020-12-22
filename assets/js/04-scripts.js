@@ -70,17 +70,14 @@ function init() {
   })
 
   //Скролл к якорю
-  function scrollToAnchor(sectionId) {
-    var targetScroll =  $(sectionId).offset().top;
-    $('html, body').animate({
-        scrollTop: (targetScroll - 100 /* минус сто - это нужный вам отступ, чтобы сделать прокрутку немного выше якоря */ )
-    }, 500);
-  }
-
-  $('.header a[href*="#"]').on('click', function(){
-    sectionId = $(this).attr('href');
-    scrollToAnchor(sectionId);
-  });
+  // $(document).on('click', 'a[href^="#"]', function (event) {
+  //   event.preventDefault();
+  //   var target = $($.attr(this, 'href'));
+  //   var targetScroll =  target.offset().top;
+  //   $('html, body').animate({
+  //       scrollTop: targetScroll
+  //   }, 500);
+  // });
 
   //Плавный скролл вверх
   $(document).on('click', '.scroll-up', function (event) {
@@ -96,7 +93,6 @@ function init() {
     newFactItemInnerText = factItemInnerText.replace(/\s\s+/g, ' ');
     factItemText = newFactItemInnerText.replace(factItemInnerNumber,'');
     factItemText = factItemText.replace(/\s\s+/g, ' ');
-    console.log(factItemText);
     $(this).find('.counter-number').append(factItemInnerNumber);
     $(this).find('.counter-text').html(factItemText);
   });
