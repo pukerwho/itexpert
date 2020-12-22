@@ -42,20 +42,20 @@
     </div>
     <!-- Content -->
     <div class="blog_content bg-white pt-10 lg:pt-12 pb-10 px-6 lg:px-16 mb-12">
-    	<?php $show_blog_meta = get_theme_mod( 'show_blog_meta' );  
-			if ($show_blog_meta): ?>
-	    	<div class="blog_meta flex items-center mb-8">
-		    	<!-- Author --> 
+    	<div class="blog_meta flex items-center mb-8">
+	    	<!-- Author --> 
+	    	<?php $show_blog_meta = get_theme_mod( 'show_blog_meta' );  
+	    	if ($show_blog_meta): ?>
 		    	<div class="blog_author">
 		    		<?php _e('Author', 'itexpert') ?>: <?php echo get_the_author(); ?>	
 		    	</div>
 		    	<div class="blog_meta_dot mx-4"></div>
-		    	<!-- Date -->
-			    <div class="blog_date">
-			    	<?php _e('Updated', 'itexpert'); ?>: <?php echo get_the_modified_time('j/n/Y') ?>
-			    </div>	
-	    	</div>
-	    <?php endif; ?>
+		    <?php endif; ?>
+	    	<!-- Date -->
+		    <div class="blog_date">
+		    	<?php echo get_post_time('Y/n/j'); ?>
+		    </div>	
+    	</div>
 	    <article>
 	    	<?php the_content(); ?>		
 	    </article>

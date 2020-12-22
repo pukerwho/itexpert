@@ -312,7 +312,7 @@ Block::make( __( 'ITExpert Reviews Block' ) )
                             ?>
                             <div class="swiper-slide px-4">
                                 <div class="review_item">
-                                    <div class="review_item_content bg-white rounded-md shadow-lg p-12 mb-10">
+                                    <div class="review_item_content flex flex-col justify-between bg-white rounded-md shadow-lg p-12 mb-10">
                                         <div class="review_item_text mb-6">
                                             <?php echo $review['block_review_text']; ?>
                                         </div>
