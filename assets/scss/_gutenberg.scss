@@ -22,14 +22,27 @@
 }
 
 
-.has-media-on-the-right {
-	.wp-block-media-text__content {
-		padding: 0;
-		padding-right: 8%;
-		p {
-			margin-bottom: 0;
+.wp-block-media-text {
+	&.has-media-on-the-right {
+		.wp-block-media-text__content {
+			padding: 0;
+			padding-right: 8%;
+			@include for-phone {
+				padding: 2rem 0;
+			}
+			
 		}
 	}	
+	.wp-block-media-text__content {
+		padding: 0;
+		padding-left: 8%;
+		@include for-phone {
+			padding: 2rem 0;
+		}
+	}
+	p {
+		margin-bottom: 0;
+	}
 }
 
 
