@@ -69,7 +69,20 @@ function init() {
     }
   })
 
-  //Плавный скролл
+  //Скролл к якорю
+  function scrollToAnchor(sectionId) {
+    var targetScroll =  $(sectionId).offset().top;
+    $('html, body').animate({
+        scrollTop: (targetScroll - 100 /* минус сто - это нужный вам отступ, чтобы сделать прокрутку немного выше якоря */ )
+    }, 500);
+  }
+
+  $('.header a[href*="#"]').on('click', function(){
+    sectionId = $(this).attr('href');
+    scrollToAnchor(sectionId);
+  });
+
+  //Плавный скролл вверх
   $(document).on('click', '.scroll-up', function (event) {
     $('html, body').animate({
         scrollTop: 0
