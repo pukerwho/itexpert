@@ -606,7 +606,7 @@ Block::make( __( 'ITExpert Interview Block' ) )
                 <div class="block_interview_wrap pt-6 pb-1">
                     <div class="block_interview_author flex items-center mb-8">
                         <div class="mr-8">
-                            <img src="<?php echo esc_html( $fields['block_interview_photo'] ); ?>" alt="">
+                            <img src="<?php echo esc_html( $fields['block_interview_photo'] ); ?>" alt="" width="110">
                         </div>
                         <div>
                             <div class="text-xl mb-2"><?php echo esc_html( $fields['block_interview_author'] ); ?></div>
