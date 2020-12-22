@@ -233,6 +233,12 @@ figure.wp-block-image {
 		}
 	}
 	&_interview {
+		&_author {
+			img {
+				width: 110px;
+				height: 110px;
+			}
+		}
 		&_wrap {
 			color: #555555;
 			background-color: #EDEDED;
