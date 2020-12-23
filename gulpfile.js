@@ -25,8 +25,8 @@ function minify() {
 };
 
 function scripts() {
-	return src('./assets/js/**/*.js')
-		.pipe(concat('all.js'))
+  return src('./assets/js/**/*.js')
+    .pipe(concat('all.js'))
     .pipe(dest('./js'));
 }
 
@@ -42,4 +42,4 @@ exports.scss = scss;
 exports.scripts = scripts;
 exports.inlinecss = inlinecss;
 
-exports.default = series(scss, prefix, minify, scripts);
+exports.default = series(scss, prefix, minify, scripts, inlinecss);
