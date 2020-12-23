@@ -149,18 +149,18 @@ function init() {
       $(this).css({'min-height' : maxSwiperReviewHeight+'px'});
     });
   }
-
-  //MASONRY
-  var portfolioWrap = document.querySelector('.blog_template_one');
-  if ($('.blog_template_one').length > 0) {
-    var portfolioMasonry = new Masonry( portfolioWrap, {
-      itemSelector: '.blog-masonry',
-      columnWidth: '.blog-masonry-size',
-      percentPosition: true,
-      gutter: 20,
-      horizontalOrder: true,
-    })
-  }
 }
 
 document.addEventListener("DOMContentLoaded", init);
+
+//MASONRY
+var portfolioWrap = document.querySelector('.blog_template_one');
+if ($('.blog_template_one').length > 0) {
+  var portfolioMasonry = new Masonry( portfolioWrap, {
+    itemSelector: '.blog-masonry',
+    columnWidth: '.blog-masonry-size',
+    percentPosition: true,
+    gutter: 20,
+    horizontalOrder: true,
+  })
+}

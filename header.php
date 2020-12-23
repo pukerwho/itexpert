@@ -75,7 +75,7 @@
     }
   </style>
   <header class="header">
-    <div class="container mx-auto">
+    <div class="container px-2 lg:px-0 mx-auto">
       <div class="w-full">
         <div class="header-wrapper">
           <div class="header-content <?php echo $header_reverse; ?>">

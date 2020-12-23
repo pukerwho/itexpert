@@ -29,6 +29,10 @@
 	&_item {
 		&_img {
 			transition: transform 0.35s;
+			&_popular {
+				height: 225px;
+				object-fit: cover;
+			}
 		}
 		&:hover {
 			.blog_item_img {
