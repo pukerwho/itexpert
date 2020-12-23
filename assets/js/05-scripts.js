@@ -1,4 +1,4 @@
-function init() {
+ $(window).load(function() {
   //Мобильное меню открываем/закрываем
   var burgerIterator = 0;
 
@@ -165,5 +165,3 @@ function init() {
     });
   }
 }
-
-document.addEventListener("DOMContentLoaded", init);
