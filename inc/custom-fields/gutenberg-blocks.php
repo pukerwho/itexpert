@@ -186,7 +186,7 @@ Block::make( __( 'ITExpert Some facts in numbers Block' ) )
                 </div>
 
                 <!-- Факты -->
-                <div class="container mx-4 lg:mx-auto px-4 lg:px-0">
+                <div class="container lg:mx-auto px-4 lg:px-0">
                     <!-- Десктопная версия -->
                     <div class="hidden lg:flex flex-wrap -mx-4">
                         <?php 
