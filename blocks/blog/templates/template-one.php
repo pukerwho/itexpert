@@ -1,4 +1,4 @@
-<a href="<?php the_permalink(); ?>" class="blog_item w-full lg:w-1/3 mb-8 px-2">
+<a href="<?php the_permalink(); ?>" class="blog_item blog-masonry w-full lg:w-1/3 mb-8 px-2">
 	<div class="h-full bg-white overflow-hidden">
 		<?php if (get_the_post_thumbnail_url(get_the_ID(), 'large')): ?>
 			<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large') ?>" alt="<?php the_title(); ?>" class="blog_item_img overflow-hidden w-full mb-6">

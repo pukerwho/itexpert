@@ -130,6 +130,29 @@
 			margin-right: 0.75rem;
 		}
 	}
+	&-masonry {
+		width: -webkit-calc(33.3333% - 20px);
+		width: calc(33.3333% - 20px);
+		margin-bottom: 20px;
+		@include for-tablet {
+			width: -webkit-calc(50% - 20px);
+			width: calc(50% - 20px);
+		}
+		@include for-phone {
+			width: 100%;
+		}
+		&-size {
+			width: -webkit-calc(33.3333% - 20px);
+			width: calc(33.3333% - 20px);
+			@include for-tablet {
+				width: -webkit-calc(50% - 20px);
+				width: calc(50% - 20px)
+			}
+			@include for-phone {
+				width: 100%;
+			}
+		}
+	}
 }
 
 @keyframes MOVE-BG {
