@@ -151,19 +151,16 @@
   }
 
   //MASONRY
-  var portfolioWrap = document.querySelector('.blog_template_one');
-  if ($('.blog_template_one').length > 0) {
-    $(function() {
-      console.log('masooonry');
-      $('.blog_template_one').imagesLoaded(function(){
-        $('.blog_template_one').masonry({
-          itemSelector: '.blog-masonry',
-          columnWidth: '.blog-masonry-size',
-          percentPosition: true,
-          gutter: 20,
-          horizontalOrder: true,
-        })
+  $(function() {
+    var $content = $('.blog_template_one');
+    $content.imagesLoaded( function() {
+      $('.blog_template_one').masonry({
+        itemSelector: '.blog-masonry',
+        columnWidth: '.blog-masonry-size',
+        percentPosition: true,
+        gutter: 20,
+        horizontalOrder: true,
       })
-    });
-  }
+    })
+  });
 });
