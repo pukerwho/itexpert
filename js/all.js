@@ -194,11 +194,20 @@ document.addEventListener("DOMContentLoaded", init);
 //MASONRY
 var portfolioWrap = document.querySelector('.blog_template_one');
 if ($('.blog_template_one').length > 0) {
-  var portfolioMasonry = new Masonry( portfolioWrap, {
-    itemSelector: '.blog-masonry',
-    columnWidth: '.blog-masonry-size',
-    percentPosition: true,
-    gutter: 20,
-    horizontalOrder: true,
-  })
+  $(function() {
+    $('#container').masonry({
+      itemSelector: '.blog-masonry',
+      columnWidth: '.blog-masonry-size',
+      percentPosition: true,
+      gutter: 20,
+      horizontalOrder: true,
+    })
+  });
+  // var portfolioMasonry = new Masonry( portfolioWrap, {
+  //   itemSelector: '.blog-masonry',
+  //   columnWidth: '.blog-masonry-size',
+  //   percentPosition: true,
+  //   gutter: 20,
+  //   horizontalOrder: true,
+  // })
 }
