@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", init);
 var portfolioWrap = document.querySelector('.blog_template_one');
 if ($('.blog_template_one').length > 0) {
   $(function() {
-    $('#container').masonry({
+    $('.blog_template_one').masonry({
       itemSelector: '.blog-masonry',
       columnWidth: '.blog-masonry-size',
       percentPosition: true,
