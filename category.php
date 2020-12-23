@@ -26,23 +26,23 @@
 				<div class="blog-masonry-size"></div>
 				<?php endif; ?>
 
-					<?php while ( have_posts() ) : the_post(); ?>
-            <?php
-					    switch ($custom_blog_template) {
-					      case 'blog_template_one':
-					        get_template_part('blocks/blog/templates/template-one', 'itexpert');
-					        break;
-					      case 'blog_template_two':
-					        get_template_part('blocks/blog/templates/template-two', 'itexpert');
-					        break;
-					      case 'blog_template_three':
-					        get_template_part('blocks/blog/templates/template-three', 'itexpert');
-					        break;
-					      default: 
-					        get_template_part('blocks/blog/templates/template-one', 'itexpert');
-					    }
-						?>
-	        <?php endwhile; // end of the loop. ?>
+				<?php while ( have_posts() ) : the_post(); ?>
+          <?php
+				    switch ($custom_blog_template) {
+				      case 'blog_template_one':
+				        get_template_part('blocks/blog/templates/template-one', 'itexpert');
+				        break;
+				      case 'blog_template_two':
+				        get_template_part('blocks/blog/templates/template-two', 'itexpert');
+				        break;
+				      case 'blog_template_three':
+				        get_template_part('blocks/blog/templates/template-three', 'itexpert');
+				        break;
+				      default: 
+				        get_template_part('blocks/blog/templates/template-one', 'itexpert');
+				    }
+					?>
+        <?php endwhile; // end of the loop. ?>
 			</div>
 			<!-- Pagination -->
 			<div class="pagination">
