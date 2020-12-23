@@ -211,7 +211,7 @@ Block::make( __( 'ITExpert Some facts in numbers Block' ) )
                             $facts_mobile_columns = $fields['block_facts_column']; 
                             foreach($facts_mobile_columns as $column):
                         ?>
-                            <div class="facts_item text-center px-4" style="width: <?php echo $column_width_desktop; ?>%;">
+                            <div class="facts_item text-center px-4" style="width: <?php echo $column_width_mobile; ?>%;">
                                 <div class="facts_item_number text-3xl font-bold" style="color: <?php echo $facts_column_number_color; ?>">
                                     <?php echo $column['block_facts_column_number']; ?>
                                 </div>
