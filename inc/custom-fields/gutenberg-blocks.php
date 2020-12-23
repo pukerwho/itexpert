@@ -97,7 +97,7 @@ Block::make( __( 'ITExpert Column Block' ) )
             ?>
             <div class="services py-20">
                 <h2 class="text-4xl font-bold text-center mb-12"><?php echo esc_html( $fields['block_column_title'] ); ?></h2>
-                <div class="container mx-4 lg:mx-auto px-4 lg:px-0">
+                <div class="container lg:mx-auto px-4 lg:px-0">
                     <div class="hidden lg:flex flex-wrap -mx-4">
                         <?php 
                             $columns = $fields['block_column']; 
@@ -176,7 +176,7 @@ Block::make( __( 'ITExpert Some facts in numbers Block' ) )
             ?>
             <div class="facts py-20" style="background: url(<?php echo $fields['block_facts_bg'] ?>);background-attachment: fixed;">
                 <!-- Заголовок -->
-                <h2 class="text-4xl font-bold text-center mb-6" style="color: <?php echo $facts_title_color; ?>">
+                <h2 class="text-4xl font-bold text-center mb-6 px-2" style="color: <?php echo $facts_title_color; ?>">
                     <?php echo esc_html( $fields['block_facts_title'] ); ?>
                 </h2>
 
