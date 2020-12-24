@@ -5,7 +5,8 @@
   var mobileMenuHeight = $('.header-menu__mobile').height();
   $('.header-menu__mobile').css({
     'display':'none',
-    'height':0
+    'height':0,
+    'opacity': 1,
   })
 
   $('.header-burger').on('click', function(){
