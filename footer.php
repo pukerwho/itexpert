@@ -12,7 +12,7 @@
 			sizes="(max-width: 767px) 767px,
 			(max-width: 1280px) 1280px,
 			1440px"
-			src="<?php echo $cat_src_full[0] ?>" alt="Welcome Block" loading="lazy" class="welcome_bg">
+			src="<?php echo $cat_src_full[0] ?>" alt="Background" loading="lazy" class="footer_bg">
     	<div class="container relative mx-auto">
     		<div class="py-24">
     			<img src="<?php echo get_theme_mod( 'footer_logo' ); ?>" alt="Logo" class="footer_logo mx-auto mb-8">

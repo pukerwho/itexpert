@@ -168,7 +168,7 @@ Block::make( __( 'ITExpert Some facts in numbers Block' ) )
                 $facts_column_description_color = $fields['block_facts_column_description_color'];
                 $facts_column_number_color = $fields['block_facts_column_number_color'];
             ?>
-            <div class="facts relative bg-white py-20">
+            <div class="facts relative py-20">
                 <!-- Заголовок -->
                 <h2 class="text-4xl font-bold text-center mb-6 px-2" style="color: <?php echo $facts_title_color; ?>">
                     <?php echo esc_html( $fields['block_facts_title'] ); ?>
@@ -293,7 +293,7 @@ Block::make( __( 'ITExpert Reviews Block' ) )
     ->set_mode( 'preview' )
     ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
         ?>
-            <div class="block reviews py-20">
+            <div class="block reviews relative py-20">
                 <h2 class="block_steps_title relative text-4xl text-center font-bold mb-20" style="color: <?php echo esc_html( $fields['block_reviews_title_color'] ); ?>">
                     <?php echo esc_html( $fields['block_reviews_title'] ); ?>
                 </h2>

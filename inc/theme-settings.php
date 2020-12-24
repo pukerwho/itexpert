@@ -95,13 +95,17 @@ function customizer_init( WP_Customize_Manager $wp_customize ){
       'default'   => '',
       'transport' => $transport
     ] );
-    $wp_customize->add_control( 
-      new WP_Customize_Image_Control( $wp_customize, $setting, [
-        'label'    => 'Фон',
-        'settings' => $setting,
-        'section'  => $section
-      ] )
-    );
+    $wp_customize->add_control( new \WP_Customize_Media_Control(
+        $wp_customize,
+        'footer_bg',
+        array(
+            'priority'    => 10,
+            'mime_type'   => 'image',
+            'settings'    => $setting,
+            'label'       => 'Background',
+            'section'     => $section,
+        )
+    ) );
 
     //Логотип
     $setting = 'footer_logo';
