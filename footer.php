@@ -2,9 +2,9 @@
     <footer id="footer" class="footer text-white">
 			<!-- Welcome BG -->
 			<?php 
-			$cat_src_medium = wp_get_attachment_image_src(get_theme_mod( 'footer_bg' ), 'medium'); 
-			$cat_src_large = wp_get_attachment_image_src(get_theme_mod( 'footer_bg' ), 'large'); 
-			$cat_src_full = wp_get_attachment_image_src(get_theme_mod( 'footer_bg' ), 'full'); 
+			$cat_src_medium = wp_get_attachment_image_src(echo get_theme_mod( 'footer_bg' ), 'medium'); 
+			$cat_src_large = wp_get_attachment_image_src(echo get_theme_mod( 'footer_bg' ), 'large'); 
+			$cat_src_full = wp_get_attachment_image_src(echo get_theme_mod( 'footer_bg' ), 'full'); 
 			?>
 			<img srcset="<?php echo $cat_src_medium[0] ?> 767w, 
 			<?php echo $cat_src_large[0] ?> 1280w,
