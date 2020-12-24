@@ -10,9 +10,6 @@ global $pagenow;
 }
 
 Block::make( __( 'ITExpert Welcome Block' ) )
-    ->add_tab('Background', array(
-        Field::make( 'image', 'block_welcome_bg', __( 'Background Image' ) ),
-    ) )
     ->add_tab('Content', array(
         Field::make( 'text', 'block_welcome_heading', __( 'Title' ) ),
         Field::make( 'color', 'block_welcome_heading_color', __( 'Title color' ) ),
@@ -47,22 +44,8 @@ Block::make( __( 'ITExpert Welcome Block' ) )
                 color: <?php echo esc_html( $fields['block_welcome_btn_hover_text_color'] ); ?> !important;
             }
         </style>
-        <div class="block welcome">
-            <!-- Welcome BG -->
-            <?php 
-            $cat_src_medium = wp_get_attachment_image_src($fields['block_welcome_bg'], 'medium'); 
-            $cat_src_large = wp_get_attachment_image_src($fields['block_welcome_bg'], 'large'); 
-            $cat_src_full = wp_get_attachment_image_src($fields['block_welcome_bg'], 'full'); 
-            ?>
-            <img srcset="<?php echo $cat_src_medium[0] ?> 767w, 
-            <?php echo $cat_src_large[0] ?> 1280w,
-            <?php echo $cat_src_full[0] ?> 1440w"
-            sizes="(max-width: 767px) 767px,
-            (max-width: 1280px) 1280px,
-            1440px"
-            src="<?php echo $cat_src_full[0] ?>" alt="Welcome Block" loading="lazy" class="welcome_bg">
-
-            <div class="container relative mx-auto py-32 lg:py-12 px-4 lg:px-0">
+        <div class="block welcome relative">
+            <div class="container  mx-auto py-32 lg:py-12 px-4 lg:px-0">
                 <div class="w-full lg:w-10/12 flex flex-col lg:flex-row items-center justify-center mx-auto">
                     <div class="w-full lg:w-1/2 text-center lg:text-left">
                         <!-- Заголовок -->
@@ -155,9 +138,6 @@ Block::make( __( 'ITExpert Column Block' ) )
 
 
 Block::make( __( 'ITExpert Some facts in numbers Block' ) )
-    ->add_tab('Background', array(
-        Field::make( 'image', 'block_facts_bg', __( 'Background Image' ) )->set_value_type( 'url'),
-    ))
     ->add_tab('Info', array(
         Field::make( 'text', 'block_facts_title', __( 'Title' ) ),
         Field::make( 'color', 'block_facts_title_color', __( 'Цвет заголовка' ) )->set_default_value( '#222222' ),
@@ -188,7 +168,7 @@ Block::make( __( 'ITExpert Some facts in numbers Block' ) )
                 $facts_column_description_color = $fields['block_facts_column_description_color'];
                 $facts_column_number_color = $fields['block_facts_column_number_color'];
             ?>
-            <div class="facts relative bg-white py-20" style="background: url(<?php echo $fields['block_facts_bg'] ?>);background-attachment: fixed;">
+            <div class="facts relative bg-white py-20">
                 <!-- Заголовок -->
                 <h2 class="text-4xl font-bold text-center mb-6 px-2" style="color: <?php echo $facts_title_color; ?>">
                     <?php echo esc_html( $fields['block_facts_title'] ); ?>
@@ -297,7 +277,6 @@ Block::make( __( 'ITExpert Reviews Block' ) )
     ->add_tab('Info', array(
         Field::make( 'text', 'block_reviews_title', __( 'Title' ) ),
         Field::make( 'color', 'block_reviews_title_color', __( 'Title Color' ) )->set_default_value( '#ffffff' ),
-        Field::make( 'image', 'block_reviews_bg', __( 'Background' ) )->set_value_type( 'url'),
         Field::make( 'text', 'block_reviews_slug', __( 'Slug' ) ),
     ))
     ->add_tab('Reviews', array(

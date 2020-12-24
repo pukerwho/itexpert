@@ -1,5 +1,18 @@
     </section>
     <footer id="footer" class="footer text-white">
+			<!-- Welcome BG -->
+			<?php 
+			$cat_src_medium = wp_get_attachment_image_src(get_theme_mod( 'footer_bg' ), 'medium'); 
+			$cat_src_large = wp_get_attachment_image_src(get_theme_mod( 'footer_bg' ), 'large'); 
+			$cat_src_full = wp_get_attachment_image_src(get_theme_mod( 'footer_bg' ), 'full'); 
+			?>
+			<img srcset="<?php echo $cat_src_medium[0] ?> 767w, 
+			<?php echo $cat_src_large[0] ?> 1280w,
+			<?php echo $cat_src_full[0] ?> 1440w"
+			sizes="(max-width: 767px) 767px,
+			(max-width: 1280px) 1280px,
+			1440px"
+			src="<?php echo $cat_src_full[0] ?>" alt="Welcome Block" loading="lazy" class="welcome_bg">
     	<div class="container relative mx-auto">
     		<div class="py-24">
     			<img src="<?php echo get_theme_mod( 'footer_logo' ); ?>" alt="Logo" class="footer_logo mx-auto mb-8">
