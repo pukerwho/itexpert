@@ -69,7 +69,7 @@
 			position: absolute;
 			right: 0;
 			top: 50%;
-			background: url('../img/icons/double-arrows.svg');
+			background: url($url_theme+'/img/icons/double-arrows.svg');
 			background-size: contain;
 			transform: translate(50%, -50%);
 		}

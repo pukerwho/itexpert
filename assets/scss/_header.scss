@@ -34,7 +34,7 @@
 			display: -webkit-flex;
 			display: -ms-flexbox;
 			display: flex;
-			margin-bottom: 0;
+			margin-bottom: -1rem;
 			li {
 				margin-right: 1.5rem;
 				&:last-of-type {
@@ -96,6 +96,7 @@
 	}
 	.menu-item-has-children {
 		position: relative;
+		padding-bottom: 1rem;
 		& > a {
 			&:after {
 				content: '';
@@ -103,7 +104,7 @@
 				height: 12px;
 		    position: relative;
 		    top: 0; right: -5px;
-		    background: url('../img/icons/arrow-down.svg');
+		    background: url($url_theme+'/img/icons/arrow-down.svg');
 		    background-size: contain;
 		    background-repeat: no-repeat;
 		    -webkit-transform: rotate(0);
@@ -116,24 +117,24 @@
 		    transition: transform .2s;
 		    transition: transform .2s, -webkit-transform .2s;
 		    @include for-phone {
-					background: url('../img/icons/arrow-down-white.svg');
+					background: url($url_theme+'/img/icons/arrow-down-white.svg');
 					background-size: contain;
 		    	background-repeat: no-repeat;
 				}
 			}
-			&:hover:after {
+			/*&:hover:after {
 				-webkit-transform: rotate(180deg);
 				-ms-transform: rotate(180deg);
 				transform: rotate(180deg);
-			}
+			}*/
 		}
 		&:hover {
 			.sub-menu {
 				visibility: visible;
 		    opacity: 1;
-		    -webkit-transform: translateY(0);
-		    -ms-transform: translateY(0);
-		    transform: translateY(0);
+		    -webkit-transform: translateY(0rem);
+		    -ms-transform: translateY(0rem);
+		    transform: translateY(0rem);
 		  }
 		}
 	}
@@ -147,9 +148,9 @@
 		-webkit-transition: 100ms ease-in-out;
 		-o-transition: 100ms ease-in-out;
 		transition: 100ms ease-in-out;
-		-webkit-transform: translateY(15px);
-		-ms-transform: translateY(15px);
-		transform: translateY(15px);
+		-webkit-transform: translateY(1rem);
+		-ms-transform: translateY(1rem);
+		transform: translateY(1rem);
 		background: #ffffff;
 		border-radius: 5px;
     -webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);

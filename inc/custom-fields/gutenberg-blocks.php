@@ -6,7 +6,7 @@ global $pagenow;
     if (( $pagenow == 'post.php' ) || (get_post_type() == 'post')) {
         wp_enqueue_style( 'editor-style', get_stylesheet_directory_uri() . '/css/style.css' );
 } else {
-    wp_enqueue_style( 'editor-style', get_stylesheet_directory_uri() . '/css/style2.css' );
+    wp_enqueue_style( 'editor-style', get_stylesheet_directory_uri() . '/css/admin-style.css' );
 }
 
 Block::make( __( 'ITExpert Welcome Block' ) )
