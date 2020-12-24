@@ -5,6 +5,9 @@
   z-index: 9999;
 	background: transparent;
 	padding: 1.2rem 0;
+	@include for-phone {
+		height: 88px;
+	}
 	&-fixed {
 		background: #04a98f none repeat scroll 0 0 !important;
 	}
@@ -57,7 +60,7 @@
 		&__mobile {
 			width: 100%;
 			position: absolute;
-			top: 62px; left: 0;
+			top: 88px; left: 0;
 			opacity: 0;
 			visibility: hidden;
 			transition: all 0.25s;
