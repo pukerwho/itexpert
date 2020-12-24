@@ -1,6 +1,6 @@
     </section>
-    <footer id="footer" class="footer text-white" style="background: url(<?php echo get_theme_mod( 'footer_bg' ); ?>); background-attachment: fixed;">
-    	<div class="container mx-auto">
+    <footer id="footer" class="footer text-white">
+    	<div class="container relative mx-auto">
     		<div class="py-24">
     			<img src="<?php echo get_theme_mod( 'footer_logo' ); ?>" alt="Logo" class="footer_logo mx-auto mb-8">
 	    		<div>

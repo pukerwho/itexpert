@@ -11,7 +11,7 @@ global $pagenow;
 
 Block::make( __( 'ITExpert Welcome Block' ) )
     ->add_tab('Background', array(
-        Field::make( 'image', 'block_welcome_bg', __( 'Background Image' ) )->set_value_type( 'url'),
+        Field::make( 'image', 'block_welcome_bg', __( 'Background Image' ) ),
     ) )
     ->add_tab('Content', array(
         Field::make( 'text', 'block_welcome_heading', __( 'Title' ) ),
@@ -47,8 +47,22 @@ Block::make( __( 'ITExpert Welcome Block' ) )
                 color: <?php echo esc_html( $fields['block_welcome_btn_hover_text_color'] ); ?> !important;
             }
         </style>
-        <div class="welcome" style="background: url(<?php echo $fields['block_welcome_bg'] ?>);background-attachment: fixed;">
-            <div class="container mx-auto py-32 lg:py-12 px-4 lg:px-0">
+        <div class="block welcome">
+            <!-- Welcome BG -->
+            <?php 
+            $cat_src_medium = wp_get_attachment_image_src($fields['block_welcome_bg'], 'medium'); 
+            $cat_src_large = wp_get_attachment_image_src($fields['block_welcome_bg'], 'large'); 
+            $cat_src_full = wp_get_attachment_image_src($fields['block_welcome_bg'], 'full'); 
+            ?>
+            <img srcset="<?php echo $cat_src_medium[0] ?> 767w, 
+            <?php echo $cat_src_large[0] ?> 1280w,
+            <?php echo $cat_src_full[0] ?> 1440w"
+            sizes="(max-width: 767px) 767px,
+            (max-width: 1280px) 1280px,
+            1440px"
+            src="<?php echo $cat_src_full[0] ?>" alt="Welcome Block" loading="lazy" class="welcome_bg">
+
+            <div class="container relative mx-auto py-32 lg:py-12 px-4 lg:px-0">
                 <div class="w-full lg:w-10/12 flex flex-col lg:flex-row items-center justify-center mx-auto">
                     <div class="w-full lg:w-1/2 text-center lg:text-left">
                         <!-- Заголовок -->
@@ -95,7 +109,7 @@ Block::make( __( 'ITExpert Column Block' ) )
                 $column_width_desktop = 100/$fields['block_column_desktop'];
                 $column_width_mobile = 100/$fields['block_column_mobile'];
             ?>
-            <div class="services py-20">
+            <div class="services relative bg-white py-20">
                 <h2 class="text-4xl font-bold text-center mb-12"><?php echo esc_html( $fields['block_column_title'] ); ?></h2>
                 <div class="container lg:mx-auto px-4 lg:px-0">
                     <div class="hidden lg:flex flex-wrap -mx-4">
@@ -174,7 +188,7 @@ Block::make( __( 'ITExpert Some facts in numbers Block' ) )
                 $facts_column_description_color = $fields['block_facts_column_description_color'];
                 $facts_column_number_color = $fields['block_facts_column_number_color'];
             ?>
-            <div class="facts py-20" style="background: url(<?php echo $fields['block_facts_bg'] ?>);background-attachment: fixed;">
+            <div class="facts relative bg-white py-20" style="background: url(<?php echo $fields['block_facts_bg'] ?>);background-attachment: fixed;">
                 <!-- Заголовок -->
                 <h2 class="text-4xl font-bold text-center mb-6 px-2" style="color: <?php echo $facts_title_color; ?>">
                     <?php echo esc_html( $fields['block_facts_title'] ); ?>
@@ -246,7 +260,7 @@ Block::make( __( 'ITExpert Steps Block' ) )
     ->set_mode( 'preview' )
     ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
         ?>
-            <div id="block_steps" class="block_steps py-20">
+            <div id="block_steps" class="block_steps relative bg-white py-20">
                 <h2 class="block_steps_title text-4xl text-center font-bold mb-4">
                     <?php echo esc_html( $fields['block_steps_title'] ); ?>
                 </h2>
@@ -300,11 +314,11 @@ Block::make( __( 'ITExpert Reviews Block' ) )
     ->set_mode( 'preview' )
     ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
         ?>
-            <div class="block reviews py-20" style="background-image: url(<?php echo esc_html( $fields['block_reviews_bg'] ); ?>); background-attachment: fixed;">
-                <h2 class="block_steps_title text-4xl text-center font-bold mb-20" style="color: <?php echo esc_html( $fields['block_reviews_title_color'] ); ?>">
+            <div class="block reviews py-20">
+                <h2 class="block_steps_title relative text-4xl text-center font-bold mb-20" style="color: <?php echo esc_html( $fields['block_reviews_title_color'] ); ?>">
                     <?php echo esc_html( $fields['block_reviews_title'] ); ?>
                 </h2>
-                <div class="container mx-auto px-4 lg:px-0">
+                <div class="container relative mx-auto px-4 lg:px-0">
                     <div class="w-full lg:w-11/12 swiper-container swiper-container-reviews" data-review-block="<?php echo esc_html( $fields['block_reviews_slug'] ); ?>">
                         <div class="swiper-wrapper">
                             <?php 
@@ -361,7 +375,7 @@ Block::make( __( 'ITExpert Clients Block' ) )
     ->set_mode( 'preview' )
     ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
         ?>
-            <div class="block clients py-20" style="background-image: url(<?php echo esc_html( $fields['block_clients_bg'] ); ?>); background-attachment: fixed;">
+            <div class="block clients relative bg-white py-20" style="background-image: url(<?php echo esc_html( $fields['block_clients_bg'] ); ?>); background-attachment: fixed;">
                 <h2 class="clients_title text-4xl text-center font-bold mb-4">
                     <?php echo esc_html( $fields['block_clients_title'] ); ?>
                 </h2>
@@ -449,7 +463,7 @@ Block::make( __( 'ITExpert SendForm Block' ) )
                     color: <?php echo esc_html( $fields['block_sendform_btn_text'] ); ?>;
                 }
             </style>
-            <div class="block sendform py-20" style="background-image: url(<?php echo esc_html( $fields['block_sendform_bg'] ); ?>); background-attachment: fixed;">
+            <div class="block sendform relative bg-white py-20" style="background-image: url(<?php echo esc_html( $fields['block_sendform_bg'] ); ?>); background-attachment: fixed;">
                 <div class="container mx-auto px-4 lg:px-0">
                     <div class="flex items-center flex-col lg:flex-row">
                         <div class="w-full lg:w-1/2 sendform_info pr-0 lg:pr-0 mb-6 lg:mb-0">
