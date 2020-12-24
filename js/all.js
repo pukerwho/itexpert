@@ -47,59 +47,11 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
   //Мобильное меню открываем/закрываем
   var burgerIterator = 0;
 
-  var mobileMenuHeight = $('.header-menu__mobile').height();
-  $('.header-menu__mobile').css({
-    'display':'none',
-    'height':0,
-    'opacity': 1,
-  })
 
   $('.header-burger').on('click', function(){
     $(this).toggleClass('open');
-    
-    if (burgerIterator === 0) {
-      $('.header-menu__mobile').css({'display':'block'});
-      $('.header-menu__mobile').animate({
-        height:mobileMenuHeight+'px',
-      }, 500);
-      burgerIterator = 1;
-    } else {
-      $('.header-menu__mobile').animate({
-        height:0,
-      }, 500, function(){
-        $('.header-menu__mobile').css({'display':'none'});
-      });
-      burgerIterator = 0;
-    }
+    $('.header-menu__mobile').toggleClass('show');
   })
-
-  //Открываем закрываем мобильное субменю
-  if ($(window).outerWidth() < 767) {
-    $('.menu-item-has-children a').on('click', function(e){
-      e.preventDefault();
-
-      $(this).closest('.menu-item-has-children').find('.sub-menu').css({
-        'display': 'block',
-      })
-
-      subMenuHeight = $(this).closest('.menu-item-has-children').find('.sub-menu').height();
-      
-      $(this).closest('.menu-item-has-children').find('.sub-menu').css({
-        height: 0
-      })
-
-      $('.header-menu__mobile').animate({
-        height:(subMenuHeight+mobileMenuHeight)+'px',
-        opacity: 1,
-      }, 500);
-
-      $(this).closest('.menu-item-has-children').find('.sub-menu').animate({
-        height:subMenuHeight+'px',
-        opacity: 1,
-      }, 500);
-    });
-  } 
-
 
   $(window).scroll(function(){
     var h_scroll = $(this).scrollTop();
