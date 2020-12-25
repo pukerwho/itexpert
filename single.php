@@ -1,7 +1,8 @@
 <?php get_header(); ?>
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-	<div class="relative">
+	<?php $custom_blog_background = get_theme_mod( 'custom_blog_bg' ); ?>
+	<div class="blog_wrap relative" style="background: <?php echo $custom_blog_background; ?>">
 		<div class="container w-full lg:w-9/12 mx-auto pt-32 pb-20 px-4 lg:px-0">
 			<!-- Title -->
 			<h1 class="text-2xl lg:text-4xl font-bold"><?php the_title(); ?></h1>
