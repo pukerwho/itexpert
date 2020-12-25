@@ -62,14 +62,6 @@ function theme_name_scripts() {
     wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/all.js', '',filemtime( get_theme_file_path('js/all.js')),true);
 };
 
-function my_lbwps_enabled($enabled, $id) {
-  if ( is_singular() ) {
-    return $enabled;
-  }
-  return false;
-}
-add_filter('lbwps_enabled', 'my_lbwps_enabled', 10, 2);
-
 // подключаем стили к админке
 add_action( 'admin_enqueue_scripts', 'load_admin_styles' );
 function load_admin_styles() {

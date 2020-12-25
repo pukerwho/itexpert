@@ -19,16 +19,15 @@
     $get_main_font = get_theme_mod( 'main_font' ); 
     switch ($get_main_font) {
       case 'roboto-slab':
-        get_template_part('blocks/fonts/roboto-slab');
+        $font_link = '<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet">'
         $main_font = 'Roboto Slab';
         break;
       case 'open-sans':
-        get_template_part('blocks/fonts/open-sans');
         $font_link = '<link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">';
         $main_font = 'Open Sans, sans-serif';
       case 'oswald':
-        get_template_part('blocks/fonts/oswald');
         $font_link = '<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600&display=swap" rel="stylesheet">';
         $main_font = 'Oswald, sans-serif';
