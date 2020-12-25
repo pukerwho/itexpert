@@ -598,7 +598,7 @@ Block::make( __( 'ITExpert Interview Block' ) )
             <div class="block_interview py-4 mb-4">
                 <div class="block_interview_wrap pt-6 pb-1">
                     <div class="block_interview_author flex items-center mb-8">
-                        <div class="mr-8">
+                        <div class="mr-4 lg:mr-8">
                             <img src="<?php echo esc_html( $fields['block_interview_photo'] ); ?>" alt="" width="110">
                         </div>
                         <div>
@@ -606,7 +606,7 @@ Block::make( __( 'ITExpert Interview Block' ) )
                             <div class="italic opacity-75"><?php echo esc_html( $fields['block_interview_author_position'] ); ?></div>
                         </div>
                     </div>
-                    <div>
+                    <div class="mr-8">
                         <?php 
                             $allqa = $fields['block_interview_qa']; 
                             foreach($allqa as $qa):
