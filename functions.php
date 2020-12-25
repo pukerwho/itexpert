@@ -68,6 +68,17 @@ function load_admin_styles() {
   wp_enqueue_style( 'admin-style', get_template_directory_uri() . '/css/admin-style.css', false, '1.0.0' );
 }
 
+function my_lbwps_enabled($enabled, $id)
+{
+    if ( is_singular( 'post' ) ) {
+      return $enabled;  
+    }
+
+    return false;
+}
+
+add_filter('lbwps_enabled', 'my_lbwps_enabled', 10, 2);
+
 remove_action( 'wp_head', '_wp_render_title_tag', 1 );
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
