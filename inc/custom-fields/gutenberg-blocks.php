@@ -354,7 +354,7 @@ Block::make( __( 'ITExpert Clients Block' ) )
     ->set_mode( 'preview' )
     ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
         ?>
-            <div class="block clients relative bg-white py-20" style="background-image: url(<?php echo esc_html( $fields['block_clients_bg'] ); ?>); background-attachment: fixed;">
+            <div class="block clients relative bg-white py-20">
                 <h2 class="clients_title text-4xl text-center font-bold mb-4">
                     <?php echo esc_html( $fields['block_clients_title'] ); ?>
                 </h2>
