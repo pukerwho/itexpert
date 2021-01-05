@@ -245,6 +245,16 @@ function editLoginPageTitleUrl() {
 
 add_action('login_headerurl', 'editLoginPageTitleUrl');
 
+function mark_menu_item_as_active($classes, $item) {
+
+    if( in_array('my-custom-class',$classes) && ( is_category('category') /* OR ...*/  ) )   {
+        $classes[] = 'current-menu-item';
+    }
+
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'mark_menu_item_as_active', 10, 2);
+
 
 //techno comment form
 add_filter('comment_form_default_fields','techno_comments_form');

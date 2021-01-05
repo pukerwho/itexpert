@@ -4,7 +4,6 @@
 
 <div class="blog_wrap" style="background: <?php echo $custom_blog_background; ?>">
 	<div class="container px-4 lg:px-0 mx-auto pt-32 pb-20">
-			
 		<!-- Отображать Тайтл? -->
 		<?php $custom_blog_title = get_theme_mod( 'custom_blog_title' );  
 		if ($custom_blog_title): ?>

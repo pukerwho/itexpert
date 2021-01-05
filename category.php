@@ -11,6 +11,32 @@
 			<h1 class="text-3xl lg:text-5xl text-center font-bold mb-4"><?php single_cat_title(); ?></h1>
 		<?php endif; ?>
 
+		<!-- Breadcrumbs -->
+		<div class="flex justify-center">
+			<div class="breadcrumbs mb-8" itemprop="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+	      <ul class="flex items-center flex-wrap -mx-3">
+					<li itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem' class="mb-2 lg:mb-0 px-3">
+						<a itemprop="item" href="<?php echo home_url(); ?>" class="breadcrumbs_link">
+							<span itemprop="name"><?php _e( 'Home', 'restx' ); ?></span>
+						</a>                        
+						<meta itemprop="position" content="1">
+					</li>
+	        <li itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem' class="mb-2 lg:mb-0 px-3">
+	          <a itemprop="item" href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="breadcrumbs_link">
+	            <span itemprop="name"><?php _e( 'Blog', 'restx' ); ?></span>
+	          </a>                        
+	          <meta itemprop="position" content="2">
+	        </li>
+	        <li itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem' class="mb-2 lg:mb-0 px-3">
+	          <a itemprop="item" href="<?php echo get_category_link(get_queried_object_id()); ?>" class="breadcrumbs_link">
+	            <span itemprop="name"><?php single_cat_title(); ?></span>
+	          </a>
+	          <meta itemprop="position" content="3">
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+
 		<!-- Отображать категории, как навигацию? -->
 		<?php $custom_blog_cat_navi = get_theme_mod( 'custom_blog_cat_navi' );  
 		if ($custom_blog_cat_navi): ?>
