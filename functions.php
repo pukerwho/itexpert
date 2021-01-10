@@ -79,7 +79,6 @@ function my_lbwps_enabled($enabled, $id)
 
 add_filter('lbwps_enabled', 'my_lbwps_enabled', 10, 2);
 
-remove_action( 'wp_head', '_wp_render_title_tag', 1 );
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 
