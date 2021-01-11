@@ -46,6 +46,8 @@ function crb_register_custom_fields() {
   require_once __DIR__ . '/inc/custom-fields/gutenberg-blocks.php';
 }
 
+require_once get_template_directory() . '/inc/custom-fields/settings-meta.php';
+
 
 register_nav_menus( array(
   'head_menu' => 'Меню в шапке',

@@ -442,7 +442,7 @@ Block::make( __( 'ITExpert SendForm Block' ) )
                     color: <?php echo esc_html( $fields['block_sendform_btn_text'] ); ?>;
                 }
             </style>
-            <div class="block sendform relative bg-white py-20" style="background-image: url(<?php echo esc_html( $fields['block_sendform_bg'] ); ?>); background-attachment: fixed;">
+            <div id="sendform" class="block sendform relative bg-white py-20" style="background-image: url(<?php echo esc_html( $fields['block_sendform_bg'] ); ?>); background-attachment: fixed;">
                 <div class="container mx-auto px-4 lg:px-0">
                     <div class="flex items-center flex-col lg:flex-row">
                         <div class="w-full lg:w-1/2 sendform_info pr-0 lg:pr-0 mb-6 lg:mb-0">

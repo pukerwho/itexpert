@@ -84,5 +84,6 @@
     	<img src="<?php echo get_theme_mod( 'scroll_up_arrow' ); ?>" alt="Scroll Up" width="25">
     </div>
     <?php wp_footer(); ?>
+    <?php echo carbon_get_theme_option('crb_main_footer_scripts'); ?>
 </body>
 </html>
