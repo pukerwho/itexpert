@@ -18,7 +18,7 @@
     			<img src="<?php echo get_theme_mod( 'footer_logo' ); ?>" alt="Logo" class="footer_logo mx-auto mb-8">
 	    		<div>
 	    			<!-- Social Btn -->
-	    			<ul class="footer_social flex justify-center -mx-2">
+	    			<ul class="footer_social flex justify-center lg:-mx-2">
 
 	    				<?php if(get_theme_mod( 'footer_facebook' )): ?>
 		    				<li class="px-2"><a href="<?php echo get_theme_mod( 'footer_facebook' ); ?>" target="_blank">
@@ -84,6 +84,6 @@
     	<img src="<?php echo get_theme_mod( 'scroll_up_arrow' ); ?>" alt="Scroll Up" width="25">
     </div>
     <?php wp_footer(); ?>
-    <?php echo carbon_get_theme_option('crb_main_footer_scripts'); ?>
+    <?php echo get_theme_mod('custom_footer_scripts'); ?>
 </body>
 </html>

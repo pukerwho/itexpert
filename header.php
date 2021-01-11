@@ -42,7 +42,7 @@
 
     wp_head();
   ?>
-  <?php echo carbon_get_theme_option('crb_main_head_scripts'); ?>
+  <?php echo get_theme_mod('custom_header_scripts'); ?>
 </head>
 <body <?php echo body_class(); ?>>
   <?php 

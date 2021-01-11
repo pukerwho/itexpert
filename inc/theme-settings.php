@@ -84,6 +84,18 @@ function customizer_init( WP_Customize_Manager $wp_customize ){
       'label'   => 'Логотип справа?',
       'type'    => 'checkbox',
     ] );
+
+    //Скрипт в HEAD
+    $setting = 'custom_header_scripts';
+    $wp_customize->add_setting($setting);
+    $wp_customize->add_control(
+        $setting,
+        array(
+          'label' => 'Scripts in HEAD',
+          'section' => $section,
+          'type' => 'textarea',
+        )
+    );
   }
 
   // Блок Footer
@@ -222,6 +234,18 @@ function customizer_init( WP_Customize_Manager $wp_customize ){
       'label'    => 'Копирайт',
       'type'     => 'text' // текстовое поле
     ] );
+
+    //Скрипт в FOOTER
+    $setting = 'custom_footer_scripts';
+    $wp_customize->add_setting($setting);
+    $wp_customize->add_control(
+        $setting,
+        array(
+          'label' => 'Scripts in FOOTER',
+          'section' => $section,
+          'type' => 'textarea',
+        )
+    );
   }
 
   // Секция
