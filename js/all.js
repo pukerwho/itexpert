@@ -88,6 +88,7 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
   if ($(window).outerWidth() < 767) {
     $('.header-menu__mobile .menu-item:not(.wpml-ls-item)').on('click', function(){
       $('.header-menu__mobile').removeClass('show');
+      console.log('go');
     });
   }
 
