@@ -12,6 +12,7 @@
 			position: relative;
 			text-transform: uppercase;
 			-webkit-transition: all .5s ease 0s;
+			-o-transition: all .5s ease 0s;
 			transition: all .5s ease 0s;
 			&:hover {
 				color: #fff;
@@ -31,19 +32,27 @@
 	}
 	&_item {
 		&_img {
+			-webkit-transition: -webkit-transform 0.35s;
+			transition: -webkit-transform 0.35s;
+			-o-transition: transform 0.35s;
 			transition: transform 0.35s;
+			transition: transform 0.35s, -webkit-transform 0.35s;
 			&_popular {
 				height: 225px;
+				-o-object-fit: cover;
 				object-fit: cover;
 			}
 		}
 		&:hover {
 			.blog_item_img {
+				-webkit-transform: scale(1.03) rotate(0.5deg);
+				-ms-transform: scale(1.03) rotate(0.5deg);
 				transform: scale(1.03) rotate(0.5deg);
 			}
 		}
 	}
 	&_content {
+		-webkit-box-shadow: 0 3px 29px rgba(0,0,0,.08);
 		box-shadow: 0 3px 29px rgba(0,0,0,.08);
     border-radius: 0 0 10px 10px;
     a {
@@ -80,10 +89,12 @@
 		}
 	}
 	&_popular {
+		-webkit-box-shadow: 0 3px 29px rgba(0,0,0,.08);
 		box-shadow: 0 3px 29px rgba(0,0,0,.08);
     border-radius: 10px;
 	}
 	&_сategories {
+		-webkit-box-shadow: 0 3px 29px rgba(0,0,0,.08);
 		box-shadow: 0 3px 29px rgba(0,0,0,.08);
     border-radius: 10px;
     li {
@@ -132,8 +143,17 @@
 			}
 		}
 		.comment-form-cookies-consent {
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: -ms-flexbox;
 			display: flex;
+			-webkit-box-pack: start;
+			-webkit-justify-content: flex-start;
+			-ms-flex-pack: start;
 			justify-content: flex-start;
+			-webkit-box-align: center;
+			-webkit-align-items: center;
+			-ms-flex-align: center;
 			align-items: center;
 		}
 		#wp-comment-cookies-consent {
@@ -143,11 +163,9 @@
 		}
 	}
 	&-masonry {
-		width: -webkit-calc(33.3333% - 20px);
 		width: calc(33.3333% - 20px);
 		margin-bottom: 20px;
 		@include for-tablet {
-			width: -webkit-calc(50% - 20px);
 			width: calc(50% - 20px);
 		}
 		@include for-phone {
@@ -155,10 +173,8 @@
 		}
 		&-size {
 			width: 33.33333%;
-			width: -webkit-calc(33.3333% - 20px);
 			width: calc(33.3333% - 20px);
 			@include for-tablet {
-				width: -webkit-calc(50% - 20px);
 				width: calc(50% - 20px)
 			}
 			@include for-phone {
@@ -168,11 +184,24 @@
 	}
 }
 
-@keyframes MOVE-BG {
+@-webkit-keyframes MOVE-BG {
 	from {
+		-webkit-transform: translateX(0);
 		transform: translateX(0);
 	}
 	to {
+		-webkit-transform: translateX(88px);
+		transform: translateX(88px);
+	}
+}
+
+@keyframes MOVE-BG {
+	from {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+	to {
+		-webkit-transform: translateX(88px);
 		transform: translateX(88px);
 	}
 }

@@ -6,67 +6,6 @@
 	padding-top: 0;
 }
 
-.footer {
-	position: relative;
-	&_bg {
-		width: 100%;
-		height: 100%;
-		position: fixed;
-		left: 0; top: 0;
-		z-index: -1;
-	}
-	&_social {
-		li {
-			a {
-				width: 55px;
-				height: 55px;
-				display: -webkit-box;
-				display: -webkit-flex;
-				display: -ms-flexbox;
-				display: flex;
-				-webkit-box-align: center;
-				-webkit-align-items: center;
-				-ms-flex-align: center;
-				align-items: center;
-				-webkit-box-pack: center;
-				-webkit-justify-content: center;
-				-ms-flex-pack: center;
-				justify-content: center;
-				background: #ffffff;
-				border-radius: 50%;
-				transition: 0.3s;
-				&:hover {
-					background: transparent;
-					svg {
-						fill: #ffffff;
-					}
-				}
-				@include for-phone {
-					width: 35px;
-					height: 35px;
-				}
-			}
-		}
-	}
-	&_bottom {
-		border-top: 1px solid rgba(255,255,255,.23);
-	}
-	&_menu {
-		display: flex;
-		align-items: center;
-		margin: 0 -1rem;
-		@include for-phone {
-			margin: 0;
-		}
-		li {
-			padding: 0 1rem;
-			@include for-phone {
-				padding: 0.25rem 0;
-			}
-		}
-	}
-}
-
 .breadcrumbs {
 	li {
 		position: relative;
@@ -79,6 +18,8 @@
 			top: 50%;
 			background: url($url_theme+'/img/icons/double-arrows.svg');
 			background-size: contain;
+			-webkit-transform: translate(50%, -50%);
+			-ms-transform: translate(50%, -50%);
 			transform: translate(50%, -50%);
 		}
 		&:last-of-type {
@@ -96,7 +37,13 @@
 		width: 40px;
 		height: 40px;
 		line-height: 40px;
+		display: -webkit-inline-box;
+		display: -webkit-inline-flex;
+		display: -ms-inline-flexbox;
 		display: inline-flex;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		-ms-flex-pack: center;
 		justify-content: center;
 		font-size: 16px;
 		font-weight: 500;
@@ -118,8 +65,17 @@
 		}
 	}
 	.nav-links {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
 		display: flex;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		-ms-flex-pack: center;
 		justify-content: center;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		-ms-flex-align: center;
 		align-items: center;
 	}
 }
@@ -147,8 +103,17 @@
 .share-link {
 	width: 40px;
 	height: 40px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
 	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
 	justify-content: center;
 	border: 1px solid #e6e6e6;
 	border-radius: 0.25rem;

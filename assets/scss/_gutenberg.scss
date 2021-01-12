@@ -48,6 +48,7 @@
 
 figure.wp-block-image {
 	width: 75%;
+	-webkit-box-shadow: 0 0 5px 0 rgba(204,204,204,.48);
 	box-shadow: 0 0 5px 0 rgba(204,204,204,.48);
 	padding: 1rem;
 	margin: auto;
@@ -164,6 +165,8 @@ figure.wp-block-image {
 			position: absolute;
 			top: -4px; left: 50%;
 			background-color: #ffffff;
+			-webkit-transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
 			transform: translate(-50%, -50%);
 			padding: 0 3rem;
 			@include for-phone {
@@ -189,6 +192,7 @@ figure.wp-block-image {
 					min-width: 175px;
 					max-width: 175px;
 					height: 175px;
+					-o-object-fit: cover;
 					object-fit: cover;
 					border-radius: 50%;
 				}
@@ -199,12 +203,15 @@ figure.wp-block-image {
 					min-width: 105px;
 					max-width: 105px;
 					height: 105px;
+					-o-object-fit: cover;
 					object-fit: cover;
 					border-radius: 50%;
 				}
 				&_icon {
 					position: absolute;
 					top: 0; right: 0;
+					-webkit-transform: translate(-50%, -25%);
+					-ms-transform: translate(-50%, -25%);
 					transform: translate(-50%, -25%);
 					img {
 						width: 135px;
@@ -226,6 +233,7 @@ figure.wp-block-image {
 					min-width: 90px;
 					max-width: 90px;
 					height: 90px;
+					-o-object-fit: cover;
 					object-fit: cover;
 					border-radius: 50%;
 				}

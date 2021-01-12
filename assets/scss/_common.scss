@@ -8,8 +8,17 @@ $url_theme: /wp-content/themes/itexpert;
 .scroll-up {
 	width: 60px;
 	height: 60px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
 	align-items: center;
 	position: fixed;
 	bottom: 1rem;
@@ -19,6 +28,8 @@ $url_theme: /wp-content/themes/itexpert;
 	visibility: hidden;
 	opacity: 0;
 	z-index: -1;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
 	transition: all 0.3s;
 	&.show {
 		visibility: visible;
@@ -58,6 +69,22 @@ input, textarea {
   border-radius: 5px;
   margin-bottom: 1.25rem;
 }
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #495057;
+  opacity: 1;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: #495057;
+  opacity: 1;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: #495057;
+  opacity: 1;
+}
+input::-ms-input-placeholder, textarea::-ms-input-placeholder {
+  color: #495057;
+  opacity: 1;
+}
 input::placeholder, textarea::placeholder {
   color: #495057;
   opacity: 1;
@@ -68,6 +95,8 @@ input[type="submit"], button[type="submit"] {
   background-color: #0C5ADB;
   color: #ffffff;
   border-radius: 7px;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
   transition: .3s;
   cursor: pointer;
   padding: 14px 39px;
@@ -87,8 +116,14 @@ summary {
 		position: absolute;
 		left: 0;
 		top: 7px;
+		-webkit-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
 		transform: rotate(0deg);
+		-webkit-transition: -webkit-transform 0.1s;
+		transition: -webkit-transform 0.1s;
+		-o-transition: transform 0.1s;
 		transition: transform 0.1s;
+		transition: transform 0.1s, -webkit-transform 0.1s;
 	}
 }
 
@@ -100,6 +135,8 @@ details {
 
 details[open] {
 	.icon {
+		-webkit-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
 		transform: rotate(45deg);
 	}
 }
