@@ -195,9 +195,9 @@ add_action( 'init', function() {
       insertAfter(respondDiv, commentAlert);
     });
     </script>";
-    // add_action( 'comment_form_after', function() {
-    //   echo "<p id='wait_approval' style=''><strong>" . _e('Ваш комментарий ожидает одобрения', 'restx') . "</strong></p>";
-    // });
+    add_action( 'comment_form_after', function() {
+      echo "<p id='wait_approval' style=''><strong>" . _e('Ваш комментарий ожидает одобрения', 'itexpert') . "</strong></p>";
+    });
   }
 });
 
@@ -258,30 +258,35 @@ add_filter('nav_menu_css_class', 'mark_menu_item_as_active', 10, 2);
 add_filter('comment_form_default_fields','techno_comments_form');
 if(!function_exists('techno_comments_form')){
     function techno_comments_form($default){
-      $default['author'] = '<div  class="comment_forms from-area"><div  class="comment_forms_inner">
-      
-      <div class="comment_field">
-        <div class="row flex flex-wrap">
-          <div class="w-1/2 form-group pr-4">
-            <input id="name" class="form-control" name="author" type="text" placeholder="'.esc_attr('Your Name','itexpert').'"/>
+      $default['author'] = '
+      <div  class="comment_forms from-area">
+        <div  class="comment_forms_inner">
+          <div class="comment_field">
+            <div class="flex flex-wrap">
+              <div class="w-full lg:w-1/3 form-group lg:pr-4">
+                <input id="name" class="form-control" name="author" type="text" placeholder="'.esc_attr('Your Name','itexpert').'"/>
+              </div>';
+
+              $default['phone'] = '<div class="w-full lg:w-1/3 form-group lg:pr-4">
+                <input id="phone" class="form-control"  name="phone" type="text" placeholder="'.esc_attr('Phone','itexpert').'"/>
+              </div>';
+
+              $default['email'] = '<div class="w-full lg:w-1/3 form-group lg:pl-4">
+                <input id="email" class="form-control"  name="email" type="text" placeholder="'.esc_attr(' Email','itexpert').'"/>
+              </div>';  
+              
+
+              $default['title'] = '</div>'; 
+              $default['url']='';
+              $default['message'] ='
+              <div class="comment_field">
+                <div class="form-group">
+                  <textarea name="comment" id="comment" class="form-control" cols="30" rows="6" placeholder="'.esc_attr(' Your comment...','itexpert').'"></textarea>
+                </div>
+              </div>
+            </div>
           </div>';
 
-      $default['email'] = '
-      <div class="w-1/2 form-group pl-4">
-        <input id="email" class="form-control"  name="email" type="text" placeholder="'.esc_attr(' Email','itexpert').'"/>
-      </div></div>';  
-      $default['phone'] = '<div class="row flex flex-wrap">
-      <div class="w-1/2 form-group pr-4">
-        <input id="phone" class="form-control"  name="phone" type="text" placeholder="'.esc_attr('Phone','itexpert').'"/>
-      </div>';
-
-      $default['title'] = '
-      <div class="w-1/2 form-group pl-4">
-        <input id="title" class="form-control" name="url" type="text" placeholder="'.esc_attr('Your Website','itexpert').'"/>
-      </div> </div></div>'; 
-      $default['url']='';
-      $default['message'] ='<div class="comment_field"><div class="form-group"><textarea name="comment" id="comment" class="form-control" cols="30" rows="6" placeholder="'.esc_attr(' Your comment...','itexpert').'"></textarea></div></div></div></div>';                                
- 
         return $default;
     }
 }
@@ -316,18 +321,30 @@ if(! function_exists('techno_comment')){
     ?>
 
     <!-- connent reply -->    
-    <div class="post_comment">
+    <div class="post_comment py-6">
       <div class="comment_inner">
         <div class="post_replay">
           <div class="post_replay_content">                     
             <div class="post_replay_inner" id="comment-<?php comment_ID(); ?>">
-              <div class="post_reply_thumb">
-                 <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"> <?php echo get_avatar($comment,80); ?></a>
-              </div>
-              <div class="post_reply">
-                <div class="st"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php echo get_comment_author(); ?></a></div>
-                <div class="reply_date">
-                  <span class="span_left"><?php echo get_comment_date(get_option('date_format')); ?></span>
+              <div class="flex relative">
+                <!-- Аватарка -->
+                <div class="post_reply_thumb mr-4">
+                  <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"> <?php echo get_avatar($comment,80); ?></a>
+                </div>
+                <!-- END Аватарка -->
+                <div>
+                  <!-- Name -->
+                  <div class="blog_comments_author">
+                    <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php echo get_comment_author(); ?></a>  
+                  </div>
+                  <!-- END Name -->
+                  <!-- Date -->
+                  <div class="blog_comments_date">
+                    <?php echo get_comment_date(get_option('date_format')); ?>  
+                  </div>
+                  <!-- END Date -->
+                </div>
+                <div class="reply">
                   <?php 
                     comment_reply_link(
                       array_merge($arg,array(
@@ -335,13 +352,13 @@ if(! function_exists('techno_comment')){
                         'depth'    => $depth,
                         'max_depth' => $arg['max_depth']
                       ))
-                  ); ?>   
-                  
+                  ); ?> 
                 </div>
+              </div>
+              <div class="comment-text lg:pl-24">
                 <p><?php comment_text(); ?></p>
                 <div class="edit_comment"><?php edit_comment_link(esc_html__('(Edit)' , 'techno' ),'<small class="ecome">','</small>') ?></div>
               </div>
-              
             </div>
           </div>                                
         </div>
