@@ -650,8 +650,8 @@ Block::make( __( 'ITExpert Quote Block' ) )
 
             <?php if ($quote_template === 'one'): ?>
             <div class="block_quote py-4">
-                <div class="flex">
-                    <div class="mr-10">
+                <div class="flex flex-col lg:flex-row">
+                    <div class="mx-auto lg:mr-10">
                         <div class="mb-4">
                             <img src="<?php echo esc_html( $fields['block_quote_photo'] ); ?>" alt="Expert" class="block_quote_template_one_photo">
                         </div>
@@ -668,17 +668,17 @@ Block::make( __( 'ITExpert Quote Block' ) )
 
             <?php if ($quote_template === 'two'): ?>
             <div class="block_quote py-12">
-                <div class="relative bg-gray-300 p-10 rounded-md">
+                <div class="relative bg-gray-300 py-10 px-8 lg:p-10 rounded-md">
                     <div class="block_quote_template_two_icon">
                         <img src="<?php bloginfo('template_url'); ?>/img/icons/quote-template-two.svg" alt="Icon">
                     </div>
-                    <div class="flex items-center mb-6">
-                        <div class="mr-6">
+                    <div class="flex flex-col lg:flex-row justify-center lg:justify-start lg:items-center mb-6">
+                        <div class="mx-auto mb-6 lg:mb-0 lg:mr-6">
                             <img src="<?php echo esc_html( $fields['block_quote_photo'] ); ?>" alt="Expert" class="block_quote_template_two_photo">
                         </div>
                         <div>
-                            <div class="text-xl mb-2"><?php echo esc_html( $fields['block_quote_author'] ); ?></div>
-                            <div class="opacity-75"><?php echo esc_html( $fields['block_quote_author_position'] ); ?></div>
+                            <div class="text-xl text-center lg:text-left mb-2"><?php echo esc_html( $fields['block_quote_author'] ); ?></div>
+                            <div class="text-center lg:text-left opacity-75"><?php echo esc_html( $fields['block_quote_author_position'] ); ?></div>
                         </div>
                     </div>
                     <div class="text-xl">
