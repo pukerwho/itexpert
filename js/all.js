@@ -85,12 +85,12 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
   });
 
   //Закрываем меню в мобильной, если кликнули на него
-  if ($(window).outerWidth() < 767) {
+  
     $('.header-menu__mobile .menu-item:not(.wpml-ls-item)').on('click', function(){
       $('.header-menu__mobile').removeClass('show');
       console.log('go');
     });
-  }
+  
 
   //Gutenberg Block Steps (Count Animation)
   $('.facts_item_number').each(function(){
