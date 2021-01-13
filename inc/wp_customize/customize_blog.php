@@ -58,12 +58,13 @@
     ] );
 
     $wp_customize->add_control( $setting, [
-      'section'  => $section, // секция
+      'section'  => $section,
       'label'    => 'Template',
-      'type'     => 'select', // выпадающий список select
-      'choices'  => [ // список значений и лейблов выпадающего списка в виде ассоциативного массива
+      'type'     => 'select',
+      'choices'  => [
         'blog_template_one'   => 'Template One',
         'blog_template_two'   => 'Template Two',
+        'blog_template_masonry'   => 'Template Masonry',
       ]
     ] );
 

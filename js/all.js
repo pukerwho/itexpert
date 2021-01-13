@@ -158,9 +158,9 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
 
   //MASONRY
   $(function() {
-    var $content = $('.blog_template_one');
+    var $content = $('.blog_template_masonry');
     $content.imagesLoaded( function() {
-      $('.blog_template_one').masonry({
+      $('.blog_template_masonry').masonry({
         itemSelector: '.blog-masonry',
         columnWidth: '.blog-masonry-size',
         percentPosition: true,

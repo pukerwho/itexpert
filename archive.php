@@ -21,7 +21,8 @@
 		<main class="w-full px-0 lg:px-4">
 			<?php $custom_blog_template = get_theme_mod( 'custom_blog_template' );  ?>
 			<div class="blog_items flex flex-wrap -mx-2 <?php echo $custom_blog_template;  ?>">
-				<?php if($custom_blog_template === 'blog_template_one'): ?>
+				
+				<?php if($custom_blog_template === 'blog_template_masonry'): ?>
 				<div class="blog-masonry-size"></div>
 				<?php endif; ?>
 
@@ -34,8 +35,8 @@
 				      case 'blog_template_two':
 				        get_template_part('blocks/blog/templates/template-two', 'itexpert');
 				        break;
-				      case 'blog_template_three':
-				        get_template_part('blocks/blog/templates/template-three', 'itexpert');
+				      case 'blog_template_masonry':
+				        get_template_part('blocks/blog/templates/template-masonry', 'itexpert');
 				        break;
 				      default: 
 				        get_template_part('blocks/blog/templates/template-one', 'itexpert');
