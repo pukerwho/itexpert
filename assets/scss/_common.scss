@@ -1,5 +1,5 @@
-$url_theme: /wp-content/themes/itexpert;
-/*$url_theme: /sites/itexpert/wp-content/themes/itexpert;*/
+/*$url_theme: /wp-content/themes/itexpert;*/
+$url_theme: /sites/itexpert/wp-content/themes/itexpert;
 
 .wp-block {
 	max-width: 100%;
@@ -143,4 +143,60 @@ details[open] {
 
 details summary::-webkit-details-marker {
   display:none;
+}
+
+.content {
+	h1 {
+		font-size: 3rem;
+	}
+	h2 {
+		font-size: 2.5rem;
+	}
+	h3 {
+		font-size: 2rem;
+	}
+	h4 {
+		font-size: 1.5rem;
+	}
+	a {
+  	color: #0c5adb;
+  }
+  p {
+  	color: #424242;
+  	font-weight: 400;
+  	margin-bottom: 1.2rem;
+  }
+  ul {
+  	margin-bottom: 1.2rem;
+  }
+  li {
+  	position: relative;
+  	list-style-type: none;
+  	padding-left: 1rem;
+  	&:before {
+  		content: '';
+  		position: absolute;
+  		left: 0; top: 0.5rem;
+  		width: 0.5rem;
+  		height: 0.5rem;
+  		background-color: #424242;
+  	}
+  }
+  blockquote {
+  	position: relative;
+  	font-size: 1.25rem;
+  	padding: 1rem 2.5rem 2.5rem 6rem;
+  	margin-bottom: 1.2rem;
+  	&:before {
+  		content: '';
+  		width: 80px;
+  		height: 100%;
+  		position: absolute;
+  		left: 0; top: -5px;
+  		background: url($url_theme+'/img/icons/quote-template-two.svg');
+  		background-size: contain;
+  		background-repeat: no-repeat;
+  		opacity: 0.15;
+  	}
+  }
 }

@@ -46,6 +46,8 @@ function crb_register_custom_fields() {
   require_once __DIR__ . '/inc/custom-fields/gutenberg-blocks.php';
 }
 
+require_once get_template_directory() . '/inc/custom-fields/category-meta.php';
+
 register_nav_menus( array(
   'head_menu' => 'Меню в шапке',
   'footer_menu' => 'Меню в подвале',
@@ -129,46 +131,6 @@ function get_page_url($template_name) {
     }
   }
   return get_bloginfo('url');
-}
-
-
-add_action('init', 'create_taxonomy');
-function create_taxonomy(){
-  register_taxonomy('hashtags', array('post'), array(
-    'label'                 => '', // определяется параметром $labels->name
-    'labels'                => array(
-      'name'              => 'Хештеги',
-      'singular_name'     => 'Хештег',
-      'search_items'      => 'Поиск хештега',
-      'all_items'         => 'Все хештеги',
-      'view_item '        => 'Посмотреть хештег',
-      'parent_item'       => 'Родительский хештег',
-      'parent_item_colon' => 'Родительский хештег:',
-      'edit_item'         => 'Редактировать хештег',
-      'update_item'       => 'Одновить хештег',
-      'add_new_item'      => 'Добавить',
-      'new_item_name'     => 'Новый',
-      'menu_name'         => 'Хештеги',
-    ),
-    'description'           => 'Хештеги, чтобы не использовать метки', // описание таксономии
-    'public'                => true,
-    'publicly_queryable'    => null, // равен аргументу public
-    'show_in_nav_menus'     => true, // равен аргументу public
-    'show_ui'               => true, // равен аргументу public
-    'show_in_menu'          => true, // равен аргументу show_ui
-    'show_tagcloud'         => true, // равен аргументу show_ui
-    'show_in_rest'          => true, // добавить в REST API
-    'rest_base'             => null, // $taxonomy
-    'hierarchical'          => true,
-    'update_count_callback' => '',
-    //'query_var'             => $taxonomy, // название параметра запроса
-    'capabilities'          => array(),
-    'meta_box_cb'           => null, // callback функция. Отвечает за html код метабокса (с версии 3.8): post_categories_meta_box или post_tags_meta_box. Если указать false, то метабокс будет отключен вообще
-    'show_admin_column'     => false, // Позволить или нет авто-создание колонки таксономии в таблице ассоциированного типа записи. (с версии 3.5)
-    '_builtin'              => false,
-    'show_in_quick_edit'    => null, // по умолчанию значение show_ui
-  ) );
-
 }
 
 //Alert для комментов
