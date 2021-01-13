@@ -258,26 +258,30 @@ add_filter('nav_menu_css_class', 'mark_menu_item_as_active', 10, 2);
 add_filter('comment_form_default_fields','techno_comments_form');
 if(!function_exists('techno_comments_form')){
     function techno_comments_form($default){
+      unset( $default['url'] );
+      $commenter = wp_get_current_commenter();
+      $consent   = empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"';
+      $default['cookies'] = '<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"' . $consent . ' />' . '<label for="wp-comment-cookies-consent">'.esc_attr('Save my name, email, and phone in this browser for the next time I comment','itexpert').'</label></p>';
+
       $default['author'] = '
       <div  class="comment_forms from-area">
         <div  class="comment_forms_inner">
           <div class="comment_field">
-            <div class="flex flex-wrap">
-              <div class="w-full lg:w-1/3 form-group lg:pr-4">
+            <div class="flex flex-wrap relative mb-10">
+              <div class="w-full lg:w-1/3 form-group">
                 <input id="name" class="form-control" name="author" type="text" placeholder="'.esc_attr('Your Name','itexpert').'"/>
               </div>';
 
-              $default['phone'] = '<div class="w-full lg:w-1/3 form-group lg:pr-4">
+              $default['email'] = '<div class="w-full lg:w-1/3 form-group lg:px-4">
+                <input id="email" class="form-control"  name="email" type="text" placeholder="'.esc_attr(' Email','itexpert').'"/>
+              </div>';
+
+              $default['phone'] = '<div class="w-full lg:w-1/3 form-group">
                 <input id="phone" class="form-control"  name="phone" type="text" placeholder="'.esc_attr('Phone','itexpert').'"/>
               </div>';
 
-              $default['email'] = '<div class="w-full lg:w-1/3 form-group lg:pl-4">
-                <input id="email" class="form-control"  name="email" type="text" placeholder="'.esc_attr(' Email','itexpert').'"/>
-              </div>';  
+              $default['title'] = '</div></div>'; 
               
-
-              $default['title'] = '</div>'; 
-              $default['url']='';
               $default['message'] ='
               <div class="comment_field">
                 <div class="form-group">
