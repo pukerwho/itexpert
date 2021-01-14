@@ -68,12 +68,19 @@
         <?php endwhile; // end of the loop. ?>
 			</div>
 			<!-- Pagination -->
-			<div class="pagination">
+			<div class="pagination mb-8">
 				<?php the_posts_pagination( array(
 			    'prev_text' => false,
 			    'next_text' => false,
 				) ); ?>
 			</div>
+			<?php if ( !is_front_page() && is_home() ): ?>
+			<div>
+				<div class="content">
+					<?php echo carbon_get_theme_option('crb_blog_text'); ?>	
+				</div>
+			</div>
+			<?php endif; ?>
 		</main>
 	</div>
 </div>

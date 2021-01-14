@@ -40,6 +40,7 @@ function crb_load() {
     require_once __DIR__ . '/vendor/autoload.php';
     \Carbon_Fields\Carbon_Fields::boot();
     require_once get_template_directory() . '/inc/custom-fields/category-meta.php';
+    require_once get_template_directory() . '/inc/custom-fields/settings-meta.php';
 }
 
 add_action( 'carbon_fields_register_fields', 'crb_register_custom_fields' );
