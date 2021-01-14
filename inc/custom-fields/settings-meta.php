@@ -8,6 +8,9 @@ function crb_attach_theme_options() {
   Container::make( 'theme_options', __('ITExpert Settings') )
     ->add_tab( __('Blog'), array(
         Field::make( 'rich_text', 'crb_blog_text', 'Content' ),
+    ) )
+    ->add_tab( __('Footer'), array(
+        Field::make( 'rich_text', 'crb_footer_text', 'Content' ),
     ) );
 }
 

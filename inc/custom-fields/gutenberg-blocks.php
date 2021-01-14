@@ -413,7 +413,7 @@ Block::make( __( 'ITExpert SendForm Block' ) )
         Field::make( 'text', 'block_sendform_title', __( 'Title' ) ),
         Field::make( 'textarea', 'block_sendform_description', __( 'Description' ) ),
     ) )
-    ->add_tab('Clients', array(
+    ->add_tab('Contact Form 7', array(
         Field::make( 'text', 'block_sendform_form', __( 'Shortcode Form' ) ),
     ) )
     ->add_tab('Styles', array(

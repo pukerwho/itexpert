@@ -15,6 +15,9 @@
 			src="<?php echo $cat_src_full[0] ?>" alt="Background" loading="lazy" class="footer_bg">
     	<div class="container relative mx-auto">
     		<div class="py-24">
+    			<div class="content w-full lg:w-8/12 mb-8 px-2 lg:px-0 mx-auto">
+						<?php echo apply_filters( 'the_content', carbon_get_theme_option('crb_footer_text') ); ?>	
+					</div>
     			<img src="<?php echo get_theme_mod( 'footer_logo' ); ?>" alt="Logo" class="footer_logo mx-auto mb-8">
 	    		<div>
 	    			<!-- Social Btn -->
