@@ -3,7 +3,7 @@ use Carbon_Fields\Block;
 use Carbon_Fields\Field;
 
 global $pagenow;
-    if (( $pagenow == 'post.php' ) || (get_post_type() == 'post')) {
+    if (( $pagenow == 'post.php' ) || (get_post_type() == 'post') || ($pagenow == 'post-new.php')) {
         wp_enqueue_style( 'editor-style', get_stylesheet_directory_uri() . '/css/style.css' );
 } else {
     wp_enqueue_style( 'editor-style', get_stylesheet_directory_uri() . '/css/admin-style.css' );
