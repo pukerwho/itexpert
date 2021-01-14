@@ -80,7 +80,7 @@
 		</main>
 		<div class="w-full px-0 lg:px-4">
 			<div class="content">
-				<?php echo carbon_get_term_meta(get_queried_object_id(), 'crb_category_text') ?>	
+				<?php echo apply_filters( 'the_content', carbon_get_term_meta(get_queried_object_id(), 'crb_category_text') ); ?>	
 			</div>
 		</div>
 	</div>
