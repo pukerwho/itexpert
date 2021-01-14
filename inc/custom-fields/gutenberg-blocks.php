@@ -286,6 +286,7 @@ Block::make( __( 'ITExpert Reviews Block' ) )
             Field::make( 'text', 'block_review_head', __( 'Должность' ) ),
             Field::make( 'image', 'block_review_avatar', __( 'Аватарка' ) )->set_value_type( 'url'),
             Field::make( 'text', 'block_review_date', __( 'Дата отзыва' ) ),
+            Field::make( 'image', 'block_review_letter', 'Reference letter')->set_value_type( 'url'),
         )),
     ) )
     ->set_category( 'custom-category', 'ITExpert' )
@@ -302,7 +303,7 @@ Block::make( __( 'ITExpert Reviews Block' ) )
                         <div class="swiper-wrapper">
                             <?php 
                                 $reviews = $fields['block_reviews']; 
-                                foreach($reviews as $review):
+                                foreach($reviews as $iterator=>$review):
                             ?>
                             <div class="swiper-slide px-4">
                                 <div class="review_item">
@@ -310,6 +311,11 @@ Block::make( __( 'ITExpert Reviews Block' ) )
                                         <div class="review_item_text mb-6">
                                             <?php echo $review['block_review_text']; ?>
                                         </div>
+                                        <?php if (isset($review['block_review_letter']) ): ?>
+                                        <div class="review_item_text underline cursor-pointer mb-6 js-openmodal-click" data-modal-id="letter-<?php echo $iterator; ?>" >
+                                            <?php _e('Reference letter', 'itexpert'); ?>
+                                        </div>
+                                        <?php endif; ?>
                                         <div class="review_item_date">
                                             <?php echo $review['block_review_date']; ?>
                                         </div>
@@ -334,6 +340,23 @@ Block::make( __( 'ITExpert Reviews Block' ) )
                         <div class="swiper-pagination-reviews reviews_pagination"></div>
                     </div>
                 </div>
+                <?php 
+                    $reviews = $fields['block_reviews']; 
+                    foreach($reviews as $iterator=>$review):
+                ?>
+                    <?php if (isset($review['block_review_letter']) ): ?>
+                        <div class="modal" data-modal-id="letter-<?php echo $iterator; ?>">
+                            <div class="modal_content">
+                                <div>
+                                    <div class="letter py-12">
+                                        <a href="<?php echo $review['block_review_letter']; ?>" style="cursor: zoom-in;"><img src="<?php echo $review['block_review_letter']; ?>" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </div>
         <?php
     } );

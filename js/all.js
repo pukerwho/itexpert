@@ -84,6 +84,32 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
     }, 500);
   });
 
+  // Модальное окно
+  function openModal(attrModal) {
+    $('.modal[data-modal-id='+attrModal+']').addClass('open');
+    $('.modal-bg').addClass('open');
+  }
+
+  function closeModal(attrModal) {
+    $('.modal').removeClass('open');
+    $('.modal-bg').removeClass('open');
+  }
+
+  $('.js-openmodal-click').on('click', function(e){
+    var clickModalData = $(this).data('modal-id');
+    openModal(clickModalData);
+  });
+
+  $('.modal_content_close').on('click', function(){
+    closeModal();
+  });
+
+  document.addEventListener('click', function(e){
+    if(e.target.classList.value === 'modal open') {
+      closeModal();
+    }
+  });
+
   //Закрываем меню в мобильной, если кликнули на него
   if ($(window).outerWidth() < 768) {
     $('.header-menu__mobile .menu-item:not(.wpml-ls-item)').on('click', function(){
@@ -103,19 +129,14 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
     $(this).find('.counter-text').html(factItemText);
   });
   
-  
-
   $('.counter-number').counterUp({
     delay: 10,
     time: 4000
   });
 
-
-
   var swiperReviewsBlock = function() {
     if ($(window).outerWidth() > 767) {
       var swiperReviews = new Swiper('.swiper-container-reviews', {
-        loop: true,
         autoplay: {
     	    delay: 5000,
     	  },
@@ -127,7 +148,6 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
     } else {
       var swiperReviews = new Swiper('.swiper-container-reviews', {
         autoHeight: true,
-        loop: true,
         autoplay: {
           delay: 5000,
         },

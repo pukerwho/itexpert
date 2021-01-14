@@ -2,53 +2,53 @@ $url_theme: /wp-content/themes/itexpert;
 /*$url_theme: /sites/itexpert/wp-content/themes/itexpert;*/
 
 .wp-block {
-	max-width: 100%;
+  max-width: 100%;
 }
 
 .scroll-up {
-	width: 60px;
-	height: 60px;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	-ms-flex-align: center;
-	align-items: center;
-	position: fixed;
-	bottom: 1rem;
-	right: 1rem;
-	border-radius: 50%;
-	cursor: pointer;
-	visibility: hidden;
-	opacity: 0;
-	z-index: -1;
-	-webkit-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	transition: all 0.3s;
-	&.show {
-		visibility: visible;
-		opacity: 1;
-		z-index: 1;		
-	}
+  width: 60px;
+  height: 60px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  &.show {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;   
+  }
 }
 
 h1,h2,h3 {
-	font-weight: 600;
-	margin-bottom: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 li {
-	list-style-type: none;
+  list-style-type: none;
 }
 
 p {
-	margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 input, textarea {
@@ -102,43 +102,43 @@ input[type="submit"], button[type="submit"] {
   padding: 14px 39px;
 }
 input[type="submit"]:hover, button[type="submit"]:hover {
-	background-color: #00247E;
-	color: #FFFFFF;
+  background-color: #00247E;
+  color: #FFFFFF;
 }
 
 summary {
-	position: relative;
-	color: #054ada;
-	outline:none;
-	cursor: pointer;
-	padding-left: 2rem;
-	.icon {
-		position: absolute;
-		left: 0;
-		top: 7px;
-		-webkit-transform: rotate(0deg);
-		-ms-transform: rotate(0deg);
-		transform: rotate(0deg);
-		-webkit-transition: -webkit-transform 0.1s;
-		transition: -webkit-transform 0.1s;
-		-o-transition: transform 0.1s;
-		transition: transform 0.1s;
-		transition: transform 0.1s, -webkit-transform 0.1s;
-	}
+  position: relative;
+  color: #054ada;
+  outline:none;
+  cursor: pointer;
+  padding-left: 2rem;
+  .icon {
+    position: absolute;
+    left: 0;
+    top: 7px;
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: -webkit-transform 0.1s;
+    transition: -webkit-transform 0.1s;
+    -o-transition: transform 0.1s;
+    transition: transform 0.1s;
+    transition: transform 0.1s, -webkit-transform 0.1s;
+  }
 }
 
 details {
-	.content {
-		padding-left: 2rem;
-	}
+  .content {
+    padding-left: 2rem;
+  }
 }
 
 details[open] {
-	.icon {
-		-webkit-transform: rotate(45deg);
-		-ms-transform: rotate(45deg);
-		transform: rotate(45deg);
-	}
+  .icon {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
 }
 
 details summary::-webkit-details-marker {
@@ -146,57 +146,104 @@ details summary::-webkit-details-marker {
 }
 
 .content {
-	h1 {
-		font-size: 3rem;
-	}
-	h2 {
-		font-size: 2.5rem;
-	}
-	h3 {
-		font-size: 2rem;
-	}
-	h4 {
-		font-size: 1.5rem;
-	}
-	a {
-  	color: #0c5adb;
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+  a {
+    color: #0c5adb;
   }
   p {
-  	color: #424242;
-  	font-weight: 400;
-  	margin-bottom: 1.2rem;
+    color: #424242;
+    font-weight: 400;
+    margin-bottom: 1.2rem;
   }
   ul {
-  	margin-bottom: 1.2rem;
+    margin-bottom: 1.2rem;
   }
   li {
-  	position: relative;
-  	list-style-type: none;
-  	padding-left: 1rem;
-  	&:before {
-  		content: '';
-  		position: absolute;
-  		left: 0; top: 0.5rem;
-  		width: 0.5rem;
-  		height: 0.5rem;
-  		background-color: #424242;
-  	}
+    position: relative;
+    list-style-type: none;
+    padding-left: 1rem;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.5rem;
+      width: 0.5rem;
+      height: 0.5rem;
+      background-color: #424242;
+    }
   }
   blockquote {
-  	position: relative;
-  	font-size: 1.25rem;
-  	padding: 1rem 2.5rem 2.5rem 6rem;
-  	margin-bottom: 1.2rem;
-  	&:before {
-  		content: '';
-  		width: 80px;
-  		height: 100%;
-  		position: absolute;
-  		left: 0; top: -5px;
-  		background: url($url_theme+'/img/icons/quote-template-two.svg');
-  		background-size: contain;
-  		background-repeat: no-repeat;
-  		opacity: 0.15;
-  	}
+    position: relative;
+    font-size: 1.25rem;
+    padding: 1rem 2.5rem 2.5rem 6rem;
+    margin-bottom: 1.2rem;
+    &:before {
+      content: '';
+      width: 80px;
+      height: 100%;
+      position: absolute;
+      left: 0; top: -5px;
+      background: url($url_theme+'/img/icons/quote-template-two.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.15;
+    }
+  }
+}
+
+.modal {
+  display: none;
+  &.open {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto!important;
+    z-index: 11;
+  }
+  &_content {
+    max-width: 600px;
+    width: 45%;
+    position: relative;
+    margin: auto;
+    &_close {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      cursor: pointer;
+    }
+  }
+  &-bg {
+    &.open {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.35);
+      z-index: 10;
+    }
   }
 }

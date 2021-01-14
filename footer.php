@@ -84,6 +84,7 @@
     	<img src="<?php echo get_theme_mod( 'scroll_up_arrow' ); ?>" alt="Scroll Up" width="25">
     </div>
     <?php wp_footer(); ?>
+    <div class="modal-bg"></div>
     <?php echo get_theme_mod('custom_footer_scripts'); ?>
 </body>
 </html>
