@@ -229,6 +229,10 @@ details summary::-webkit-details-marker {
     width: 45%;
     position: relative;
     margin: auto;
+    @include for-phone {
+      margin-right: 100%;
+      width: 85%;
+    }
     &_close {
       position: absolute;
       right: 20px;
