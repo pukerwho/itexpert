@@ -230,7 +230,7 @@ details summary::-webkit-details-marker {
     position: relative;
     margin: auto;
     @include for-phone {
-      margin-right: 100%;
+      max-width: 100%;
       width: 85%;
     }
     &_close {
