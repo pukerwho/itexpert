@@ -403,7 +403,7 @@ class ITExpert_Popular_Posts extends WP_Widget {
   function update( $new_instance, $old_instance ) {
     $instance = array();
     $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-
+    
     return $instance;
   }
 
@@ -424,7 +424,7 @@ function true_register_wp_sidebars() {
     )
   );
 
-  register_widget( 'ITExpert_Popular_Posts' );
+  // register_widget( 'ITExpert_Popular_Posts' );
 
 }
 
