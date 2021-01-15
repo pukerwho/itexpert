@@ -342,10 +342,9 @@ if(! function_exists('techno_comment')){
 class ITExpert_Popular_Posts extends WP_Widget {
 
   function __construct() {
-    // Запускаем родительский класс
     parent::__construct(
       'itexpert_popular_posts_widget',
-      'ITExpert Popular Posts',
+      'ITExpert Popular Posts'
     );
   }
 
@@ -424,7 +423,7 @@ function true_register_wp_sidebars() {
     )
   );
 
-  // register_widget( 'ITExpert_Popular_Posts' );
+  register_widget( 'ITExpert_Popular_Posts' );
 
 }
 
