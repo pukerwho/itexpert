@@ -74,20 +74,6 @@
 				<?php wp_nav_menu([
           'theme_location' => 'after_post',
         ]); ?>
-				<?php 
-	      $categories = get_terms( [
-	        'taxonomy' => 'category',
-	        'parent' => 0,
-	        'hide_empty' => false,
-	      ] );
-
-	      foreach($categories as $cat): ?>
-		    	<li>
-			    	<a href="<?php echo get_category_link( $cat->term_id); ?>">
-			    		<?php echo $cat->name; ?>	
-			    	</a>	
-		    	</li>
-				<?php endforeach; ?>
 			</div>
 
 			<!-- Comments -->
