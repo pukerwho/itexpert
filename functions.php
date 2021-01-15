@@ -6,6 +6,7 @@ function customThemeSupport() {
     global $wp_version;
     add_theme_support( 'menus' );
     add_theme_support( 'post-thumbnails' );
+    add_theme_support('widgets');
     // let wordpress manage the title
     add_theme_support( 'title-tag' );
     add_theme_support( 'editor-gradient-preset' );
@@ -337,5 +338,96 @@ if(! function_exists('techno_comment')){
   }
 }
 
+// Класс виджета
+class ITExpert_Popular_Posts extends WP_Widget {
+
+  function __construct() {
+    // Запускаем родительский класс
+    parent::__construct(
+      'itexpert_popular_posts', // ID виджета, если не указать (оставить ''), то ID будет равен названию класса в нижнем регистре: my_widget
+      'ITExpert Popular Posts',
+    );
+  }
+
+  // Вывод виджета
+  function widget( $args, $instance ){
+    $title = apply_filters( 'widget_title', $instance['title'] );
+
+    echo $args['before_widget'];
+
+    if( $title )
+      echo $args['before_title'] . $title . $args['after_title'];
+
+    echo '<div class="flex flex-col lg:flex-row -mx-2">';
+    
+    $posts_popular_query = new WP_Query( array(
+      'post_type' => 'post',
+      'orderby' => 'comment_count',
+      'posts_per_page' => 3,
+    ));
+    if ($posts_popular_query->have_posts()) : while ($posts_popular_query->have_posts()) : $posts_popular_query->the_post(); ?>
+      
+    <a href="<?php the_permalink(); ?>" class="blog_item w-full lg:w-1/3 mb-8 px-2">
+      <div class="h-full bg-white overflow-hidden">
+        <?php if (get_the_post_thumbnail_url(get_the_ID(), 'large')): ?>
+          <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large') ?>" alt="<?php the_title(); ?>" class="blog_item_img blog_item_img_popular overflow-hidden w-full mb-6">
+        <?php endif; ?>
+        <div class="text-sm color-grey-600 px-6 mb-2">
+          <?php the_time('j F Y'); ?>
+        </div>
+        <div class="text-xl font-bold px-6 pb-8">
+          <?php the_title(); ?>
+        </div>
+      </div>
+    </a>
+    
+    <?php 
+    endwhile; endif; wp_reset_postdata();
+    echo '</div>';
+    echo $args['after_widget'];
+  }
+
+  // html форма настроек виджета в Админ-панели
+  function form( $instance ) {
+    $title = @ $instance['title'] ?: 'Popular Posts';
+
+    ?>
+    <p>
+      <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
+      <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+    </p>
+    <?php 
+  }
+
+  // Сохранение настроек виджета (очистка)
+  function update( $new_instance, $old_instance ) {
+    $instance = array();
+    $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+
+    return $instance;
+  }
+
+}
+
+function true_register_wp_sidebars() {
+ 
+  /* В боковой колонке - первый сайдбар */
+  register_sidebar(
+    array(
+      'id' => 'after_post', // уникальный id
+      'name' => 'After Post', // название сайдбара
+      'description' => 'Перетащите сюда виджеты, чтобы добавить их в сайдбар.', // описание
+      'before_widget' => '<div id="%1$s" class="widget blog_popular bg-white pt-10 lg:pt-12 pb-10 px-6 lg:px-16 mb-12 %2$s">',
+      'after_widget' => '</div>',
+      'before_title' => '<h2 class="text-3xl font-bold mb-6 widget-title">',
+      'after_title' => '</h2>'
+    )
+  );
+
+  register_widget( 'ITExpert_Popular_Posts' );
+
+}
+
+add_action( 'widgets_init', 'true_register_wp_sidebars' );
 
 ?>

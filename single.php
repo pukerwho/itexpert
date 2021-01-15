@@ -66,6 +66,8 @@
 		    </div>
 	    </div>
 
+	    <?php dynamic_sidebar( 'after_post' ); ?>
+
 	    <!-- Popular Post -->
 	    <div class="blog_popular bg-white pt-10 lg:pt-12 pb-10 px-6 lg:px-16 mb-12">
 	    	<h2 class="text-3xl font-bold mb-6"><?php _e('Popular Post', 'itexpert'); ?></h2>
