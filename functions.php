@@ -55,6 +55,7 @@ register_nav_menus( array(
   'head_menu' => 'Меню в шапке',
   'footer_menu' => 'Меню в подвале',
   'cat_navi_menu' => 'Меню в Блоге',
+  'after_post' => 'На странице Записи',
 ) );
 
 // подключаем файлы со стилями

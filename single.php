@@ -70,7 +70,10 @@
 
 			<!-- Categories -->
 			<div class="blog_сategories bg-white pt-10 lg:pt-12 pb-10 px-6 lg:px-16 mb-12">
-	    	<h2 class="text-3xl font-bold mb-6"><?php _e('Popular categories', 'itexpert'); ?></h2>
+	    	<h2 class="text-3xl font-bold mb-6"><?php _e('Other Links', 'itexpert'); ?></h2>
+				<?php wp_nav_menu([
+          'theme_location' => 'after_post',
+        ]); ?>
 				<?php 
 	      $categories = get_terms( [
 	        'taxonomy' => 'category',
