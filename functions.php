@@ -344,7 +344,7 @@ class ITExpert_Popular_Posts extends WP_Widget {
   function __construct() {
     // Запускаем родительский класс
     parent::__construct(
-      'itexpert_popular_posts', // ID виджета, если не указать (оставить ''), то ID будет равен названию класса в нижнем регистре: my_widget
+      'itexpert_popular_posts_widget',
       'ITExpert Popular Posts',
     );
   }
@@ -403,7 +403,7 @@ class ITExpert_Popular_Posts extends WP_Widget {
   function update( $new_instance, $old_instance ) {
     $instance = array();
     $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-    
+
     return $instance;
   }
 
