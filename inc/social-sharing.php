@@ -19,7 +19,7 @@ function crunchify_social_sharing_buttons($content) {
     $telegramURL = 'https://t.me/share/url?url='. $crunchifyURL .'&text='. $crunchifyTitle .'';
     $facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$crunchifyURL;
     $viberURL = 'viber://pa?chatURI='. $crunchifyURL .'';
-    $linkedinUrl = 'https://www.linkedin.com/shareArticle?mini=true&url='. $crunchifyTitle .'&title='. $crunchifyTitle .'&summary=&source=';
+    $linkedinUrl = 'https://www.linkedin.com/shareArticle?mini=true&url='. $crunchifyURL .'&title='. $crunchifyTitle .'&summary=&source=';
     $pinterestURL = 'https://pinterest.com/pin/create/button/?url='.$crunchifyURL.'&amp;media='.$crunchifyThumbnail[0].'&amp;description='.$crunchifyTitle;
     $whatsappURL = 'https://wa.me/?text='. $crunchifyURL .'';
 
