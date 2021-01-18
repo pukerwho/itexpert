@@ -167,6 +167,9 @@
 		    -webkit-transform: translateY(0rem);
 		    -ms-transform: translateY(0rem);
 		    transform: translateY(0rem);
+		    @include for-phone {
+		    	display: block;
+		    }
 		  }
 		}
 	}
