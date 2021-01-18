@@ -352,8 +352,6 @@ class ITExpert_Recent_Posts extends WP_Widget {
   // Вывод виджета
   function widget( $args, $instance ){
     $title = apply_filters( 'widget_title', $instance['title'] );
-
-    echo '<div class="widget blog_popular bg-white pt-10 lg:pt-12 pb-10 px-6 lg:px-16 mb-12"><h2 class="text-3xl font-bold mb-6 widget-title">'. $title .'</h2><div class="flex flex-col lg:flex-row -mx-2">';
     
     $current_id = get_the_ID();
     $current_term = wp_get_post_terms(  get_the_ID() , 'category', array( 'parent' => 0 ) );
