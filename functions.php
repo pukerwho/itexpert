@@ -358,7 +358,7 @@ class ITExpert_Recent_Posts extends WP_Widget {
     if( $title )
       echo $args['before_title'] . $title . $args['after_title'];
 
-    echo '<div class="flex flex-col lg:flex-row -mx-2">';
+    
     
     $current_id = get_the_ID();
     $current_term = wp_get_post_terms(  get_the_ID() , 'category', array( 'parent' => 0 ) );
@@ -380,6 +380,9 @@ class ITExpert_Recent_Posts extends WP_Widget {
         )
       ),
     ));
+    if ($posts_popular_query->have_posts()); {
+      echo '<div class="flex flex-col lg:flex-row -mx-2">';  
+    }
     if ($posts_popular_query->have_posts()) : while ($posts_popular_query->have_posts()) : $posts_popular_query->the_post(); ?>
       
     <a href="<?php the_permalink(); ?>" class="blog_item w-full lg:w-1/3 mb-8 px-2">
