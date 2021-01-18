@@ -358,7 +358,7 @@ class ITExpert_Recent_Posts extends WP_Widget {
     foreach (array_slice($current_term, 0,1) as $myterm); {
       $current_term_slug = $myterm->slug;
     }
-    $posts_popular_query = new WP_Query( array(
+    $posts_recent_query = new WP_Query( array(
       'post_type' => 'post',
       'orderby' => 'date',
       'posts_per_page' => 3,
@@ -373,10 +373,11 @@ class ITExpert_Recent_Posts extends WP_Widget {
         )
       ),
     ));
-    if ($posts_popular_query->have_posts()); {
+
+    if ($posts_recent_query->have_posts()); {
       echo '<div class="widget blog_popular bg-white pt-10 lg:pt-12 pb-10 px-6 lg:px-16 mb-12"><h2 class="text-3xl font-bold mb-6 widget-title">'. $title .'</h2><div class="flex flex-col lg:flex-row -mx-2">';
     }
-    if ($posts_popular_query->have_posts()) : while ($posts_popular_query->have_posts()) : $posts_popular_query->the_post(); ?>
+    if ($posts_recent_query->have_posts()) : while ($posts_recent_query->have_posts()) : $posts_recent_query->the_post(); ?>
       
     <a href="<?php the_permalink(); ?>" class="blog_item w-full lg:w-1/3 mb-8 px-2">
       <div class="h-full bg-white overflow-hidden">
@@ -394,7 +395,7 @@ class ITExpert_Recent_Posts extends WP_Widget {
     
     <?php 
     endwhile; endif; wp_reset_postdata();
-    if ($posts_popular_query->have_posts()); {
+    if ($posts_recent_query->have_posts()); {
       echo '</div></div>';
     }
   }
