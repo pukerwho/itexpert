@@ -340,12 +340,12 @@ if(! function_exists('techno_comment')){
 }
 
 // Класс виджета
-class ITExpert_Popular_Posts extends WP_Widget {
+class ITExpert_Recent_Posts extends WP_Widget {
 
   function __construct() {
     parent::__construct(
-      'itexpert_popular_posts_widget',
-      'ITExpert Popular Posts'
+      'itexpert_recent_posts_widget',
+      'ITExpert Recent Posts'
     );
   }
 
@@ -360,10 +360,22 @@ class ITExpert_Popular_Posts extends WP_Widget {
 
     echo '<div class="flex flex-col lg:flex-row -mx-2">';
     
+    $current_id = get_the_ID();
+    $current_term = wp_get_post_terms(  get_the_ID() , 'category', array( 'parent' => 0 ) );
     $posts_popular_query = new WP_Query( array(
       'post_type' => 'post',
-      'orderby' => 'comment_count',
+      'orderby' => 'date',
       'posts_per_page' => 3,
+      'post__not_in' => array($current_id),
+      'tax_query' => array(
+        array(
+          'taxonomy' => 'category',
+          'terms' => $current_term_slug,
+          'field' => 'slug',
+          'include_children' => true,
+          'operator' => 'IN'
+        )
+      ),
     ));
     if ($posts_popular_query->have_posts()) : while ($posts_popular_query->have_posts()) : $posts_popular_query->the_post(); ?>
       
@@ -389,7 +401,7 @@ class ITExpert_Popular_Posts extends WP_Widget {
 
   // html форма настроек виджета в Админ-панели
   function form( $instance ) {
-    $title = @ $instance['title'] ?: 'Popular Posts';
+    $title = @ $instance['title'] ?: 'Recent Posts';
 
     ?>
     <p>
@@ -424,7 +436,7 @@ function true_register_wp_sidebars() {
     )
   );
 
-  register_widget( 'ITExpert_Popular_Posts' );
+  register_widget( 'ITExpert_Recent_Posts' );
 
 }
 
