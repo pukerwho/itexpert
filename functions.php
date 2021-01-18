@@ -352,14 +352,6 @@ class ITExpert_Recent_Posts extends WP_Widget {
   // Вывод виджета
   function widget( $args, $instance ){
     $title = apply_filters( 'widget_title', $instance['title'] );
-
-    echo $args['before_widget'];
-
-    if( $title )
-      echo $args['before_title'] . $title . $args['after_title'];
-
-    
-    
     $current_id = get_the_ID();
     $current_term = wp_get_post_terms(  get_the_ID() , 'category', array( 'parent' => 0 ) );
     foreach (array_slice($current_term, 0,1) as $myterm); {
@@ -381,6 +373,10 @@ class ITExpert_Recent_Posts extends WP_Widget {
       ),
     ));
     if ($posts_popular_query->have_posts()); {
+      echo $args['before_widget'];
+
+      if( $title )
+        echo $args['before_title'] . $title . $args['after_title'];
       echo '<div class="flex flex-col lg:flex-row -mx-2">';  
     }
     if ($posts_popular_query->have_posts()) : while ($posts_popular_query->have_posts()) : $posts_popular_query->the_post(); ?>
