@@ -25,7 +25,7 @@
 						$current_term = wp_get_post_terms(  get_the_ID() , 'category', array( 'parent' => 0 ) );
 						foreach (array_slice($current_term, 0,1) as $myterm); {
 						} ?>
-						<?php if ($myterm && ($myterm->slug == 'без-категории') ): ?>
+						<?php if ($myterm && ($myterm->slug != 'без-категории') ): ?>
 		        <li itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem' class="mb-2 lg:mb-0 px-3">
 		          <a itemprop="item" href="<?php echo get_term_link($myterm->term_id, 'category') ?>"class="breadcrumbs_link">
 								<span itemprop="name"><?php echo $myterm->name; ?></span>

@@ -362,6 +362,9 @@ class ITExpert_Recent_Posts extends WP_Widget {
     
     $current_id = get_the_ID();
     $current_term = wp_get_post_terms(  get_the_ID() , 'category', array( 'parent' => 0 ) );
+    foreach (array_slice($current_term, 0,1) as $myterm); {
+      $current_term_slug = $myterm->slug;
+    }
     $posts_popular_query = new WP_Query( array(
       'post_type' => 'post',
       'orderby' => 'date',
