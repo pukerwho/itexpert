@@ -396,7 +396,9 @@ class ITExpert_Recent_Posts extends WP_Widget {
     
     <?php 
     endwhile; endif; wp_reset_postdata();
-    echo '</div></div>';
+    if ($posts_popular_query->have_posts()); {
+      echo '</div></div>';
+    }
   }
 
   // html форма настроек виджета в Админ-панели
