@@ -28,7 +28,7 @@
 						<?php if ($myterm && ($myterm->slug != 'без-категории') && ($myterm->slug != 'без-рубрики') && ($myterm->slug != 'bez-kategorii') ): ?>
 		        <li itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem' class="mb-2 lg:mb-0 px-3">
 		          <a itemprop="item" href="<?php echo get_term_link($myterm->term_id, 'category') ?>"class="breadcrumbs_link">
-								<span itemprop="name"><?php echo $myterm->name; ?> - $myterm->slug</span>
+								<span itemprop="name"><?php echo $myterm->name; ?> - <?php echo $myterm->slug; ?></span>
 							</a>                       
 		          <meta itemprop="position" content="3">
 		        </li>
